@@ -25,11 +25,10 @@ public class Display : Control
         context.DrawRectangle(Background, new Pen(Brushes.Black), new(0, 0, Width, Height), 5, 5);
     }
 
-    protected override Size MeasureOverride(Size availableSize)
+    protected override Size MeasureCore(Size availableSize)
     {
-        Width = availableSize.Width;
-        Height = availableSize.Height;
+        Width = Math.Max(availableSize.Width, MinWidth) - Margin.Left - Margin.Right;
 
-        return base.MeasureOverride(availableSize);
+        return base.MeasureCore(availableSize);
     }
 }
