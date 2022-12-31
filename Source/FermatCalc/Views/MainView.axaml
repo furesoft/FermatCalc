@@ -17,7 +17,7 @@
 
 	<material:ColorZone Height="{Binding $parent[Window].Height}" Width="{Binding $parent[Window].Width}">
 		<Grid>
-			<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="35" Height="125" />
+			<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="35" Height="125" Background="#606745" />
 
 			<material:FloatingButton HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15">
 				<material:FloatingButton.Content>
