@@ -18,7 +18,7 @@
 		<Grid>
 			<material:FloatingButton HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15">
 				<material:FloatingButton.Content>
-					<icons:MaterialIcon Kind="Cog" FontSize="12" />
+					<icons:MaterialIconExt Size="25" Kind="Cog" />
 				</material:FloatingButton.Content>
 			</material:FloatingButton>
 		</Grid>
