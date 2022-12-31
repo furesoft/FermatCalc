@@ -1,17 +1,26 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewModels="clr-namespace:FermatCalc.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="FermatCalc.Views.MainView"
-             Foreground="White"
-             Background="#171C2C">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <viewModels:MainViewModel />
-  </Design.DataContext>
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+			 xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			 xmlns:material="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+			 xmlns:viewModels="clr-namespace:FermatCalc.ViewModels"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 x:Class="FermatCalc.Views.MainView"
+			 Foreground="White"
+			 Background="#171C2C">
+	<Design.DataContext>
+		<viewModels:MainViewModel />
+	</Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<material:ColorZone>
+		<Grid>
+			<material:FloatingButton HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15">
+				<material:FloatingButton.Content>
+					<icons:MaterialIcon Kind="Cog" FontSize="12" />
+				</material:FloatingButton.Content>
+			</material:FloatingButton>
+		</Grid>
+	</material:ColorZone>
 </UserControl>
