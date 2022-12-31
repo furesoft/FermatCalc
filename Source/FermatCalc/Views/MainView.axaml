@@ -17,13 +17,33 @@
 
 	<material:ColorZone Height="{Binding $parent[Window].Height}" Width="{Binding $parent[Window].Width}">
 		<Grid>
-			<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="35" Height="125" Background="#606745" />
+			<material:NavigationDrawer Name="drawer" LeftDrawerOpened="{Binding #hamburgerToggle.IsChecked, Mode=TwoWay}">
+				<material:NavigationDrawer.LeftDrawerContent>
+					<ListBox Grid.Row="1" Classes="Drawer" Name="Drawer" VerticalAlignment="Top">
+						<ListBox.Styles>
+							<Style Selector="ListBoxItem">
+								<Setter Property="Height" Value="48" />
+								<Setter Property="Padding" Value="16,0" />
+								<Setter Property="VerticalContentAlignment" Value="Center" />
+								<Setter Property="IsEnabled" Value="{Binding $self.Content.IsEnabled}" />
+							</Style>
+						</ListBox.Styles>
 
-			<material:FloatingButton HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15">
-				<material:FloatingButton.Content>
-					<icons:MaterialIconExt Size="25" Kind="Cog" />
-				</material:FloatingButton.Content>
-			</material:FloatingButton>
+						<TextBlock Classes="Body2" Text="Calculator" FontSize="18" />
+						<TextBlock Classes="Body2" Text="Settings" FontSize="18" />
+					</ListBox>
+				</material:NavigationDrawer.LeftDrawerContent>
+
+				<StackPanel>
+					<ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15" Name="hamburgerToggle">
+						<ToggleButton.Content>
+							<icons:MaterialIconExt Size="25" Kind="HamburgerMenu" />
+						</ToggleButton.Content>
+					</ToggleButton>
+
+					<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="35,0,35,0" Height="125" Background="#606745" />
+				</StackPanel>
+			</material:NavigationDrawer>
 		</Grid>
 	</material:ColorZone>
 </UserControl>
