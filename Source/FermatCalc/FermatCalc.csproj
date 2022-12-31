@@ -8,6 +8,8 @@
   <ItemGroup>
     <AvaloniaResource Include="Assets\**" />
     <AvaloniaXaml Remove="Assets\Icons.axaml" />
+    <None Remove="Icon.ico" />
+    <AvaloniaResource Include="Icon.ico" />
     <TrimmerRootDescriptor Include="Roots.xml" />
   </ItemGroup>
 

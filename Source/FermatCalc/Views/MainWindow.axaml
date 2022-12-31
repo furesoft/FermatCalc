@@ -1,12 +1,12 @@
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:FermatCalc.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:FermatCalc.Views"
-        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450" WindowStartupLocation="CenterScreen"
-        x:Class="FermatCalc.Views.MainWindow" MinWidth="400" Width="400"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="FermatCalc">
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:vm="using:FermatCalc.ViewModels"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:views="clr-namespace:FermatCalc.Views"
+		mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450" WindowStartupLocation="CenterScreen"
+		x:Class="FermatCalc.Views.MainWindow" MinWidth="400" Width="400"
+		Icon="avares://FermatCalc/Icon.ico"
+		Title="FermatCalc">
 	<views:MainView />
 </Window>
