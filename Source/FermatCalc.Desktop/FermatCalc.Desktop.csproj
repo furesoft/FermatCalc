@@ -24,4 +24,11 @@
   <ItemGroup>
     <ProjectReference Include="..\FermatCalc\FermatCalc.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="testLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

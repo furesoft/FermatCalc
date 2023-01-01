@@ -18,13 +18,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		global.json = global.json
+		testLayout.xaml = testLayout.xaml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FermatCalc.JS", "FermatCalc.JS\FermatCalc.JS.csproj", "{62FC0322-8D95-4D90-A3AE-4156DB6C5410}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FermatCalc.Controls", "FermatCalc.Controls\FermatCalc.Controls.csproj", "{81A7A883-4C2A-4EDE-87B3-FEC91FB69707}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FermatCalc.KeyboardLayout", "FermatCalc.KeyboardLayout\FermatCalc.KeyboardLayout.csproj", "{4B20A246-CFC2-4F61-98AE-69DF1135353D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FermatCalc.KeyboardLayout", "FermatCalc.KeyboardLayout\FermatCalc.KeyboardLayout.csproj", "{4B20A246-CFC2-4F61-98AE-69DF1135353D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{2435126F-CEE6-4C02-8C47-A9333A2BFA94}"
 EndProject

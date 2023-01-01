@@ -1,4 +1,7 @@
-﻿using ReactiveUI;
+﻿using Avalonia;
+using Avalonia.Controls;
+using ReactiveUI;
+using System.ComponentModel;
 
 namespace FermatCalc.KeyboardLayout;
 
@@ -7,6 +10,7 @@ public class LayoutButton : ReactiveObject
     private string _display;
     private string _actionID;
     private bool _visible;
+    private object _icon;
     public int ID { get; set; }
 
     public string Display
@@ -16,7 +20,15 @@ public class LayoutButton : ReactiveObject
         {
             this.RaiseAndSetIfChanged(ref _display, value);
             IsVisible = true;
+            Icon = Application.Current.FindResource(value);
         }
+    }
+
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public object Icon
+    {
+        get { return _icon; }
+        set { this.RaiseAndSetIfChanged(ref _icon, value); }
     }
 
     public string ActionID
@@ -25,6 +37,7 @@ public class LayoutButton : ReactiveObject
         set { this.RaiseAndSetIfChanged(ref _actionID, value); }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool IsVisible
     {
         get { return _visible; }

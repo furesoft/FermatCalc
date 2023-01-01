@@ -1,0 +1,11 @@
+<Layout Name="TestLayout" xmlns="http://schemas.furesoft.org/FermatCalc">
+    <LayoutPageCollection>
+        <LayoutPage>
+            <LayoutButton ActionID="internal_mult" Display="sqrt" ID="20" />
+            <LayoutButton ActionID="internal_add" Display="+" ID="15" />
+            <LayoutButton ActionID="internal_sub" Display="exponent" ID="14" />
+            <LayoutButton ActionID="internal_sub" Display="number1" ID="15" />
+            <LayoutButton ActionID="internal_sub" Display="equals" ID="16" />
+        </LayoutPage>
+    </LayoutPageCollection>
+</Layout>

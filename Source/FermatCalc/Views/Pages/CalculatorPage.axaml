@@ -5,6 +5,7 @@
 			 xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
 			 xmlns:material="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
 			 xmlns:controls="clr-namespace:FermatCalc.Controls;assembly=FermatCalc.Controls"
+			 xmlns:me="using:FermatCalc.MarkupExtensions"
 			 xmlns:kbLayout="clr-namespace:FermatCalc.KeyboardLayout;assembly=FermatCalc.KeyboardLayout"
 			 mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="510" Height="510"
 			 x:Class="FermatCalc.Views.Pages.CalculatorPage">
@@ -26,9 +27,21 @@
 								<ItemsPresenter.ItemTemplate>
 									<DataTemplate>
 										<Grid>
-											<Button Tag="{Binding ID}" IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Content="{Binding Display, Mode=TwoWay}" Margin="5" />
+											<Button Tag="{Binding ID}" IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Margin="5">
+												<Image Width="25" Height="25">
+													<Image.Source>
+														<DrawingImage Drawing="{Binding Icon}" />
+													</Image.Source>
+												</Image>
+											</Button>
 
-											<Button Tag="{Binding ID}" IsVisible="{Binding $parent[Window].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Content="{Binding Display, Mode=TwoWay}" Margin="5">
+											<Button Tag="{Binding ID}" IsVisible="{Binding $parent[Window].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Margin="5">
+												<Image Width="25" Height="25">
+													<Image.Source>
+														<DrawingImage Drawing="{Binding Icon}" />
+													</Image.Source>
+												</Image>
+
 												<Button.Flyout>
 													<Flyout ShowMode="TransientWithDismissOnPointerMoveAway" Placement="BottomEdgeAlignedLeft">
 														<ListBox SelectedItem="{Binding $parent[Carousel].DataContext.SelectedNewFunction, Mode=TwoWay}">
