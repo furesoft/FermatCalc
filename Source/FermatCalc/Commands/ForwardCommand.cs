@@ -1,4 +1,4 @@
-﻿using FermatCalc.ViewModels;
+﻿using FermatCalc.ViewModels.Pages;
 using System;
 using System.Windows.Input;
 
@@ -6,11 +6,11 @@ namespace FermatCalc.Commands;
 
 internal class ForwardCommand : ICommand
 {
-    private MainViewModel mainViewModel;
+    private CalculatorPageViewModel viewModel;
 
-    public ForwardCommand(MainViewModel mainViewModel)
+    public ForwardCommand(CalculatorPageViewModel vm)
     {
-        this.mainViewModel = mainViewModel;
+        this.viewModel = vm;
     }
 
     public event EventHandler? CanExecuteChanged;
@@ -22,6 +22,6 @@ internal class ForwardCommand : ICommand
 
     public void Execute(object? parameter)
     {
-        mainViewModel.SelectedPage++;
+        viewModel.SelectedPage++;
     }
 }
