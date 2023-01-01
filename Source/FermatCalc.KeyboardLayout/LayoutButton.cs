@@ -2,7 +2,7 @@
 
 public class LayoutButton
 {
-    public string ID { get; set; }
+    public int ID { get; set; }
     public string Display { get; set; }
     public string ActionID { get; set; }
 }

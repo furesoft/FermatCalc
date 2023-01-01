@@ -4,8 +4,8 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:views="clr-namespace:FermatCalc.Views"
-		mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450" WindowStartupLocation="CenterScreen"
-		x:Class="FermatCalc.Views.MainWindow" MinWidth="400" Width="400"
+		mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="570" WindowStartupLocation="CenterScreen"
+		x:Class="FermatCalc.Views.MainWindow" MinWidth="370" Width="370" Height="575"
 		Icon="avares://FermatCalc/Icon.ico"
 		Title="FermatCalc">
 	<views:MainView />
