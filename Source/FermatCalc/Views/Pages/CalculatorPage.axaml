@@ -10,11 +10,14 @@
 	<StackPanel Margin="15" Spacing="15">
 		<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="125" Background="#606745" />
 
-		<Grid>
-			<Button Margin="0,5,5,0" Content="Shift" HorizontalAlignment="Left" Width="70" Height="40" Classes="Outline" />
-			<Button Margin="0,5,5,0" Content="Alpha" HorizontalAlignment="Right" Foreground="Red" Width="70" Height="40" Classes="Outline" />
+		<Grid RowDefinitions="*,*">
+			<Button Command="{Binding BackCommand}" Content="&lt;" Margin="0,5,5,0" HorizontalAlignment="Left" Width="70" Height="40" Classes="Outline" />
+			<Button Command="{Binding ForwardCommand}" Content="&gt;" Margin="0,5,5,0" HorizontalAlignment="Right" Width="70" Height="40" Classes="Outline" />
 
 			<controls:NavigationButtonGroup Margin="0,5,0,0" HorizontalAlignment="Center" Grid.Column="1" />
+
+			<Carousel Grid.Row="1" Margin="0,15,0,0" SelectedIndex="{Binding SelectedPage, Mode=TwoWay}"
+					  Items="{Binding Pages, Mode=TwoWay}" VerticalAlignment="Top" />
 		</Grid>
 	</StackPanel>
 </UserControl>
