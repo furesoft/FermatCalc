@@ -5,7 +5,8 @@
 			 xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
 			 xmlns:material="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
 			 xmlns:controls="clr-namespace:FermatCalc.Controls;assembly=FermatCalc.Controls"
-			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:kbLayout="clr-namespace:FermatCalc.KeyboardLayout;assembly=FermatCalc.KeyboardLayout"
+			 mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="510" Height="510"
 			 x:Class="FermatCalc.Views.Pages.CalculatorPage">
 	<StackPanel Margin="15" Spacing="15">
 		<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="125" Background="#606745" />
@@ -16,8 +17,28 @@
 
 			<controls:NavigationButtonGroup Margin="0,5,0,0" HorizontalAlignment="Center" Grid.Column="1" />
 
-			<Carousel Grid.Row="1" Margin="0,15,0,0" SelectedIndex="{Binding SelectedPage, Mode=TwoWay}"
-					  Items="{Binding Pages, Mode=TwoWay}" VerticalAlignment="Top" />
+			<Carousel Grid.Row="1" Margin="0,15,0,0" SelectedIndex="{Binding SelectedButtonPage, Mode=TwoWay}"
+					  Items="{Binding KeyboardLayout.Pages, Mode=TwoWay}" VerticalAlignment="Top">
+				<Carousel.DataTemplates>
+					<DataTemplate DataType="{x:Type kbLayout:LayoutPage}">
+						<Border>
+							<ItemsPresenter Items="{Binding Mode=TwoWay}">
+								<ItemsPresenter.ItemTemplate>
+									<DataTemplate>
+										<Button Classes="Outline" Content="{Binding Display, Mode=TwoWay}" Margin="5" />
+									</DataTemplate>
+								</ItemsPresenter.ItemTemplate>
+
+								<ItemsPresenter.ItemsPanel>
+									<ItemsPanelTemplate>
+										<WrapPanel ItemWidth="55" ItemHeight="45" />
+									</ItemsPanelTemplate>
+								</ItemsPresenter.ItemsPanel>
+							</ItemsPresenter>
+						</Border>
+					</DataTemplate>
+				</Carousel.DataTemplates>
+			</Carousel>
 		</Grid>
 	</StackPanel>
 </UserControl>

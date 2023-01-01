@@ -1,5 +1,6 @@
-using Portable.Xaml;
+﻿using Portable.Xaml;
 using Portable.Xaml.Markup;
+using ReactiveUI;
 using System.IO;
 
 [assembly: XmlnsDefinition("http://schemas.furesoft.org/FermatCalc", "FermatCalc.KeyboardLayout")]
@@ -7,7 +8,7 @@ using System.IO;
 namespace FermatCalc.KeyboardLayout;
 
 [ContentProperty("Pages")]
-public class Layout
+public class Layout : ReactiveObject
 {
     private LayoutPageCollection pages = new();
 
@@ -34,5 +35,18 @@ public class Layout
         var serialized = XamlServices.Save(this);
 
         File.WriteAllText(path, serialized);
+    }
+
+    public void ApplyLayoutFrom(Layout layout)
+    {
+        for (int i = 0; i < layout.Pages.Count; i++)
+        {
+            var page = layout.Pages[i];
+
+            foreach (var btn in page)
+            {
+                Pages[i][btn.ID].Display = btn.Display;
+            }
+        }
     }
 }
