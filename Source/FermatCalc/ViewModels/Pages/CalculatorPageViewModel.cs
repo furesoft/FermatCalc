@@ -24,7 +24,7 @@ public class CalculatorPageViewModel : ViewModelBase
         BackCommand = new BackCommand(this);
         ForwardCommand = new ForwardCommand(this);
 
-        KeyboardLayout = Layout.NewEmptyKeyboard(30, 3);
+        KeyboardLayout = Layout.NewEmptyKeyboard(30, 1);
         KeyboardLayout.ApplyLayoutFrom(Layout.Load("testLayout.xaml"));
 
         var resources = App.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().SelectMany(_ => _.Loaded);
