@@ -19,7 +19,7 @@
 		<Grid>
 			<material:NavigationDrawer Name="drawer" LeftDrawerOpened="{Binding #hamburgerToggle.IsChecked, Mode=TwoWay}">
 				<material:NavigationDrawer.LeftDrawerContent>
-					<ListBox Grid.Row="1" Classes="Drawer" Name="Drawer" VerticalAlignment="Top">
+					<ListBox Grid.Row="1" Classes="Drawer" Name="Drawer" VerticalAlignment="Top" SelectedIndex="{Binding #PageCarousel.SelectedIndex, Mode=TwoWay}">
 						<ListBox.Styles>
 							<Style Selector="ListBoxItem">
 								<Setter Property="Height" Value="48" />
@@ -41,9 +41,18 @@
 						</ToggleButton.Content>
 					</ToggleButton>
 
-					<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="35,0,35,0" Height="125" Background="#606745" />
+					<Carousel Name="PageCarousel" HorizontalAlignment="Stretch">
+						<Carousel.Styles>
+							<Style Selector="Carousel#PageCarousel">
+								<Setter Property="PageTransition">
+									<PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut"
+											   SlideInEasing="CircularEaseOut" />
+								</Setter>
+							</Style>
+						</Carousel.Styles>
 
 					<controls:NavigationButtonGroup Margin="0,25,0,0" HorizontalAlignment="Center" />
+					</Carousel>
 				</StackPanel>
 			</material:NavigationDrawer>
 		</Grid>
