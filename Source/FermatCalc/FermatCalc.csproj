@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FermatCalc.Controls\FermatCalc.Controls.csproj" />
     <ProjectReference Include="..\FermatCalc.JS\FermatCalc.JS.csproj" />
+    <ProjectReference Include="..\FermatCalc.KeyboardLayout\FermatCalc.KeyboardLayout.csproj" />
   </ItemGroup>
 
   <ItemGroup>

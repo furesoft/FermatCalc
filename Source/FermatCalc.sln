@@ -22,7 +22,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FermatCalc.JS", "FermatCalc.JS\FermatCalc.JS.csproj", "{62FC0322-8D95-4D90-A3AE-4156DB6C5410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FermatCalc.Controls", "FermatCalc.Controls\FermatCalc.Controls.csproj", "{81A7A883-4C2A-4EDE-87B3-FEC91FB69707}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FermatCalc.Controls", "FermatCalc.Controls\FermatCalc.Controls.csproj", "{81A7A883-4C2A-4EDE-87B3-FEC91FB69707}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FermatCalc.KeyboardLayout", "FermatCalc.KeyboardLayout\FermatCalc.KeyboardLayout.csproj", "{4B20A246-CFC2-4F61-98AE-69DF1135353D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{2435126F-CEE6-4C02-8C47-A9333A2BFA94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,9 +62,20 @@ Global
 		{81A7A883-4C2A-4EDE-87B3-FEC91FB69707}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81A7A883-4C2A-4EDE-87B3-FEC91FB69707}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81A7A883-4C2A-4EDE-87B3-FEC91FB69707}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B20A246-CFC2-4F61-98AE-69DF1135353D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B20A246-CFC2-4F61-98AE-69DF1135353D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B20A246-CFC2-4F61-98AE-69DF1135353D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B20A246-CFC2-4F61-98AE-69DF1135353D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C} = {2435126F-CEE6-4C02-8C47-A9333A2BFA94}
+		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA} = {2435126F-CEE6-4C02-8C47-A9333A2BFA94}
+		{EBD9022F-BC83-4846-9A11-6F7F3772DC64} = {2435126F-CEE6-4C02-8C47-A9333A2BFA94}
+		{7AD1DAC8-7FBE-49D5-8614-7321233DB82E} = {2435126F-CEE6-4C02-8C47-A9333A2BFA94}
+		{62FC0322-8D95-4D90-A3AE-4156DB6C5410} = {2435126F-CEE6-4C02-8C47-A9333A2BFA94}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}

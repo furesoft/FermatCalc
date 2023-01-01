@@ -1,5 +1,4 @@
-﻿using Avalonia.Controls;
-using FermatCalc.Commands;
+﻿using FermatCalc.Commands;
 using ReactiveUI;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -14,10 +13,6 @@ public class MainViewModel : ViewModelBase
     {
         BackCommand = new BackCommand(this);
         ForwardCommand = new ForwardCommand(this);
-
-        Pages.Add(new TextBlock { Text = "Page 1" });
-        Pages.Add(new TextBlock { Text = "Page 2" });
-        Pages.Add(new TextBlock { Text = "Page 3" });
     }
 
     public ObservableCollection<object> Pages { get; set; } = new();
