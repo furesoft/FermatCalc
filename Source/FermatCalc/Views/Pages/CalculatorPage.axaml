@@ -27,7 +27,7 @@
 								<ItemsPresenter.ItemTemplate>
 									<DataTemplate>
 										<Grid>
-											<Button Tag="{Binding ID}" IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Margin="5">
+											<Button ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Margin="5">
 												<Image Width="25" Height="25">
 													<Image.Source>
 														<DrawingImage Drawing="{Binding Icon}" />
@@ -35,7 +35,7 @@
 												</Image>
 											</Button>
 
-											<Button Tag="{Binding ID}" IsVisible="{Binding $parent[Window].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Margin="5">
+											<Button ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding $parent[Window].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Margin="5">
 												<Image Width="25" Height="25">
 													<Image.Source>
 														<DrawingImage Drawing="{Binding Icon}" />

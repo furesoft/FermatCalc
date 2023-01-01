@@ -11,6 +11,7 @@ public class LayoutButton : ReactiveObject
     private string _actionID;
     private bool _visible;
     private object _icon;
+    private string _hint;
     public int ID { get; set; }
 
     public string Display
@@ -22,6 +23,12 @@ public class LayoutButton : ReactiveObject
             IsVisible = true;
             Icon = Application.Current.FindResource(value);
         }
+    }
+
+    public string Hint
+    {
+        get { return _hint; }
+        set { this.RaiseAndSetIfChanged(ref _hint, value); }
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
