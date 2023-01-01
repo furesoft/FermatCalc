@@ -1,3 +1,4 @@
+root = true
 
 [*.cs]
 #### Benennungsstile ####
@@ -54,7 +55,7 @@ csharp_style_expression_bodied_indexers = true:silent
 csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_lambdas = true:silent
 csharp_style_expression_bodied_local_functions = false:silent
-csharp_style_namespace_declarations = block_scoped:silent
+csharp_style_namespace_declarations = block_scoped:error
 csharp_style_inlined_variable_declaration = true:suggestion
 csharp_style_deconstructed_variable_declaration = true:suggestion
 csharp_style_var_for_built_in_types = false:silent
