@@ -1,4 +1,4 @@
-﻿using FermatCalc.Commands;
+using FermatCalc.Commands;
 using FermatCalc.KeyboardLayout;
 using ReactiveUI;
 using System.Windows.Input;

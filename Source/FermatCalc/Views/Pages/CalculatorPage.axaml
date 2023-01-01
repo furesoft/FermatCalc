@@ -25,7 +25,7 @@
 							<ItemsPresenter Items="{Binding Mode=TwoWay}">
 								<ItemsPresenter.ItemTemplate>
 									<DataTemplate>
-										<Button Classes="Outline" Content="{Binding Display, Mode=TwoWay}" Margin="5" />
+										<Button IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Content="{Binding Display, Mode=TwoWay}" Margin="5" />
 									</DataTemplate>
 								</ItemsPresenter.ItemTemplate>
 
