@@ -24,6 +24,7 @@ public class Layout : ReactiveObject
     {
         var layout = new Layout();
 
+        int id = 0;
         for (int pageIndex = 0; pageIndex < pageCount; pageIndex++)
         {
             var page = new LayoutPage();
@@ -31,7 +32,7 @@ public class Layout : ReactiveObject
             for (int i = 0; i < buttonsPerPage; i++)
             {
                 var btn = new LayoutButton();
-                btn.ID = i;
+                btn.ID = id++;
 
                 page.Add(btn);
             }
