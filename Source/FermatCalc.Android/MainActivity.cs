@@ -1,8 +1,9 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Avalonia.Android;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
-using FermatCalc.ViewModels;
+using FermatCalc.ViewModels.Pages;
 
 namespace FermatCalc.Android;
 
@@ -13,7 +14,7 @@ public class MainActivity : AvaloniaMainActivity
     {
         if (Avalonia.Application.Current?.ApplicationLifetime is ISingleViewApplicationLifetime lifetime)
         {
-            if (lifetime?.MainView?.DataContext is MainViewModel vm)
+            if (lifetime.MainView.FindControl<Carousel>("Carousel").DataContext is CalculatorPageViewModel vm)
             {
                 vm.SelectedPage--;
             }

@@ -20,6 +20,16 @@ public class LayoutButton : ReactiveObject
         set
         {
             this.RaiseAndSetIfChanged(ref _display, value);
+
+            if (string.IsNullOrEmpty(value))
+            {
+                _display = null;
+                IsVisible = false;
+                Icon = null;
+
+                return;
+            }
+
             IsVisible = true;
             Icon = Application.Current.FindResource(value);
         }

@@ -36,6 +36,8 @@ public class CalculatorPageViewModel : ViewModelBase
             AvailableButtons.Add(btn);
         }
 
+        AvailableButtons.Add(new LayoutButton() { Hint = "Remove" });
+
         ShowEditButtonPopupCommand = new ShowButtonPopupCommand(this);
         ApplyNewButtonCommand = new ApplyNewButtonCommand(this);
     }

@@ -32,17 +32,19 @@
 
 						<TextBlock Classes="Body2" Text="Calculator" FontSize="18" Foreground="Black" />
 						<TextBlock Classes="Body2" Text="Settings" FontSize="18" Foreground="Black" />
-
-						<ToggleSwitch IsChecked="{Binding IsEditMode, Mode=TwoWay}" />
 					</ListBox>
 				</material:NavigationDrawer.LeftDrawerContent>
 
 				<StackPanel>
-					<ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15" Name="hamburgerToggle">
-						<ToggleButton.Content>
+					<Grid>
+						<ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15" Name="hamburgerToggle">
 							<icons:MaterialIconExt Size="25" Kind="HamburgerMenu" />
-						</ToggleButton.Content>
-					</ToggleButton>
+						</ToggleButton>
+
+						<material:FloatingButton IsExtended="True" Width="10" Height="10" Command="{Binding ChangeEditModeCommand}" Margin="15" VerticalAlignment="Top" HorizontalAlignment="Right">
+							<icons:MaterialIconExt Size="25" Kind="Edit" />
+						</material:FloatingButton>
+					</Grid>
 
 					<Carousel Name="PageCarousel" HorizontalAlignment="Stretch">
 						<Carousel.Styles>
