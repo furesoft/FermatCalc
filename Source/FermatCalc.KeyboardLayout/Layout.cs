@@ -1,4 +1,4 @@
-﻿using Portable.Xaml;
+using Portable.Xaml;
 using Portable.Xaml.Markup;
 using System.IO;
 
@@ -9,7 +9,14 @@ namespace FermatCalc.KeyboardLayout;
 [ContentProperty("Pages")]
 public class Layout
 {
-    public LayoutPageCollection Pages { get; set; } = new();
+    private LayoutPageCollection pages = new();
+
+    public LayoutPageCollection Pages
+    {
+        get { return pages; }
+        set { this.RaiseAndSetIfChanged(ref pages, value); }
+    }
+
     public string? Name { get; set; }
 
     public static Layout Parse(string src)

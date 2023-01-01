@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 
 namespace FermatCalc.KeyboardLayout;
 
-public class LayoutPageCollection : List<LayoutPage>
+public class LayoutPageCollection : ObservableCollection<LayoutPage>
 {
-
 }
