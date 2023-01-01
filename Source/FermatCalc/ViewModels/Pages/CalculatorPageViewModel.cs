@@ -1,3 +1,4 @@
+﻿using Avalonia.Controls;
 using FermatCalc.Commands;
 using FermatCalc.KeyboardLayout;
 using ReactiveUI;
@@ -10,13 +11,27 @@ public class CalculatorPageViewModel : ViewModelBase
     private Layout _keyboardLayout;
     private int _selectedPage;
 
+    private object _selectedNewFunction;
+
     public CalculatorPageViewModel()
     {
         BackCommand = new BackCommand(this);
         ForwardCommand = new ForwardCommand(this);
 
         KeyboardLayout = Layout.NewEmptyKeyboard(30, 3);
-        //KeyboardLayout.ApplyLayoutFrom(Layout.Load("testLayout.xaml"));
+        KeyboardLayout.ApplyLayoutFrom(Layout.Load("testLayout.xaml"));
+    }
+
+    public object SelectedNewFunction
+    {
+        get { return _selectedNewFunction; }
+        set
+        {
+            this.RaiseAndSetIfChanged(ref _selectedNewFunction, value);
+            var lbi = (ListBoxItem)value;
+            var btn = (LayoutButton)lbi.Tag;
+            btn.Display = lbi.Content.ToString();
+        }
     }
 
     public int SelectedPage

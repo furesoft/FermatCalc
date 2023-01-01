@@ -25,7 +25,20 @@
 							<ItemsPresenter Items="{Binding Mode=TwoWay}">
 								<ItemsPresenter.ItemTemplate>
 									<DataTemplate>
-										<Button IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Content="{Binding Display, Mode=TwoWay}" Margin="5" />
+										<Grid>
+											<Button Tag="{Binding ID}" IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Content="{Binding Display, Mode=TwoWay}" Margin="5" />
+
+											<Button Tag="{Binding ID}" IsVisible="{Binding $parent[Window].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Content="{Binding Display, Mode=TwoWay}" Margin="5">
+												<Button.Flyout>
+													<Flyout ShowMode="TransientWithDismissOnPointerMoveAway" Placement="BottomEdgeAlignedLeft">
+														<ListBox SelectedItem="{Binding $parent[Carousel].DataContext.SelectedNewFunction, Mode=TwoWay}">
+															<ListBoxItem Tag="{Binding}">sqrt</ListBoxItem>
+															<ListBoxItem Tag="{Binding}">logn</ListBoxItem>
+														</ListBox>
+													</Flyout>
+												</Button.Flyout>
+											</Button>
+										</Grid>
 									</DataTemplate>
 								</ItemsPresenter.ItemTemplate>
 
