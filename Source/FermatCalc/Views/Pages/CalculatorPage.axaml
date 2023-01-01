@@ -23,7 +23,31 @@
 					  Items="{Binding KeyboardLayout.Pages, Mode=TwoWay}" VerticalAlignment="Top">
 				<Carousel.DataTemplates>
 					<DataTemplate DataType="{x:Type kbLayout:LayoutPage}">
-						<Border>
+						<Grid>
+							<Popup IsOpen="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" PlacementAnchor="VerticalMask">
+								<Border Background="White" BorderBrush="Black" BorderThickness="1">
+									<ItemsPresenter Items="{Binding $parent[Carousel].DataContext.AvailableButtons, Mode=TwoWay}">
+										<ItemsPresenter.ItemTemplate>
+											<DataTemplate>
+												<ToggleButton IsChecked="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" Command="{Binding $parent[Carousel].DataContext.ApplyNewButtonCommand}" CommandParameter="{Binding}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" Classes="Outline" Margin="5">
+													<Image Width="25" Height="25">
+														<Image.Source>
+															<DrawingImage Drawing="{Binding Icon}" />
+														</Image.Source>
+													</Image>
+												</ToggleButton>
+											</DataTemplate>
+										</ItemsPresenter.ItemTemplate>
+
+										<ItemsPresenter.ItemsPanel>
+											<ItemsPanelTemplate>
+												<UniformGrid Columns="5" />
+											</ItemsPanelTemplate>
+										</ItemsPresenter.ItemsPanel>
+									</ItemsPresenter>
+								</Border>
+							</Popup>
+
 							<ItemsPresenter Items="{Binding Mode=TwoWay}">
 								<ItemsPresenter.ItemTemplate>
 									<DataTemplate>
@@ -42,32 +66,6 @@
 														<DrawingImage Drawing="{Binding Icon}" />
 													</Image.Source>
 												</Image>
-
-												<Button.Flyout>
-													<Flyout ShowMode="TransientWithDismissOnPointerMoveAway" Placement="BottomEdgeAlignedLeft">
-														<Border Background="White" BorderBrush="Black" BorderThickness="1">
-															<ListBox Items="{Binding $parent[Carousel].DataContext.AvailableButtons, Mode=TwoWay}">
-																<ListBox.ItemTemplate>
-																	<DataTemplate>
-																		<Button Command="{Binding $parent[Carousel].DataContext.ApplyNewButtonCommand}" CommandParameter="{Binding}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" Classes="Outline" Margin="5">
-																			<Image Width="25" Height="25">
-																				<Image.Source>
-																					<DrawingImage Drawing="{Binding Icon}" />
-																				</Image.Source>
-																			</Image>
-																		</Button>
-																	</DataTemplate>
-																</ListBox.ItemTemplate>
-
-																<ListBox.ItemsPanel>
-																	<ItemsPanelTemplate>
-																		<UniformGrid Columns="5" />
-																	</ItemsPanelTemplate>
-																</ListBox.ItemsPanel>
-															</ListBox>
-														</Border>
-													</Flyout>
-												</Button.Flyout>
 											</Button>
 										</Grid>
 									</DataTemplate>
@@ -79,7 +77,7 @@
 									</ItemsPanelTemplate>
 								</ItemsPresenter.ItemsPanel>
 							</ItemsPresenter>
-						</Border>
+						</Grid>
 					</DataTemplate>
 				</Carousel.DataTemplates>
 			</Carousel>

@@ -24,5 +24,6 @@ internal class ShowButtonPopupCommand : ICommand
     public void Execute(object? parameter)
     {
         calculatorPageViewModel.OldButton = (LayoutButton)parameter;
+        calculatorPageViewModel.IsReplacePopupOpened = true;
     }
 }
