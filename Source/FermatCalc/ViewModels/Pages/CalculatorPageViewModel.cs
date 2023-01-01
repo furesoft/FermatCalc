@@ -1,7 +1,9 @@
-﻿using Avalonia.Controls;
+﻿using Avalonia.Markup.Xaml.MarkupExtensions;
 using FermatCalc.Commands;
 using FermatCalc.KeyboardLayout;
 using ReactiveUI;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 
 namespace FermatCalc.ViewModels.Pages;
@@ -11,7 +13,9 @@ public class CalculatorPageViewModel : ViewModelBase
     private Layout _keyboardLayout;
     private int _selectedPage;
 
-    private object _selectedNewFunction;
+    private LayoutButton _oldButton;
+
+    private ObservableCollection<LayoutButton> _availableButtons = new();
 
     public CalculatorPageViewModel()
     {
@@ -20,17 +24,35 @@ public class CalculatorPageViewModel : ViewModelBase
 
         KeyboardLayout = Layout.NewEmptyKeyboard(30, 3);
         KeyboardLayout.ApplyLayoutFrom(Layout.Load("testLayout.xaml"));
+
+        var resources = App.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().SelectMany(_ => _.Loaded);
+        foreach (var res in resources)
+        {
+            var btn = new LayoutButton();
+            btn.Display = res.Key.ToString();
+
+            AvailableButtons.Add(btn);
+        }
+
+        ShowEditButtonPopupCommand = new ShowButtonPopupCommand(this);
+        ApplyNewButtonCommand = new ApplyNewButtonCommand(this);
     }
 
-    public object SelectedNewFunction
+    public ObservableCollection<LayoutButton> AvailableButtons
     {
-        get { return _selectedNewFunction; }
+        get { return _availableButtons; }
+        set { this.RaiseAndSetIfChanged(ref _availableButtons, value); }
+    }
+
+    public ICommand ShowEditButtonPopupCommand { get; set; }
+    public ICommand ApplyNewButtonCommand { get; set; }
+
+    public LayoutButton OldButton
+    {
+        get { return _oldButton; }
         set
         {
-            this.RaiseAndSetIfChanged(ref _selectedNewFunction, value);
-            var lbi = (ListBoxItem)value;
-            var btn = (LayoutButton)lbi.Tag;
-            btn.Display = lbi.Content.ToString();
+            this.RaiseAndSetIfChanged(ref _oldButton, value);
         }
     }
 

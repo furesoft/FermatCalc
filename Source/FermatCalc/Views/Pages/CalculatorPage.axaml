@@ -5,6 +5,7 @@
 			 xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
 			 xmlns:material="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
 			 xmlns:controls="clr-namespace:FermatCalc.Controls;assembly=FermatCalc.Controls"
+			 xmlns:ap="clr-namespace:FermatCalc.Helpers"
 			 xmlns:me="using:FermatCalc.MarkupExtensions"
 			 xmlns:kbLayout="clr-namespace:FermatCalc.KeyboardLayout;assembly=FermatCalc.KeyboardLayout"
 			 mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="510" Height="510"
@@ -35,7 +36,7 @@
 												</Image>
 											</Button>
 
-											<Button ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding $parent[Window].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Margin="5">
+											<Button CommandParameter="{Binding}" Command="{Binding $parent[Carousel].DataContext.ShowEditButtonPopupCommand}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding $parent[Window].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Margin="5">
 												<Image Width="25" Height="25">
 													<Image.Source>
 														<DrawingImage Drawing="{Binding Icon}" />
@@ -44,10 +45,27 @@
 
 												<Button.Flyout>
 													<Flyout ShowMode="TransientWithDismissOnPointerMoveAway" Placement="BottomEdgeAlignedLeft">
-														<ListBox SelectedItem="{Binding $parent[Carousel].DataContext.SelectedNewFunction, Mode=TwoWay}">
-															<ListBoxItem Tag="{Binding}">sqrt</ListBoxItem>
-															<ListBoxItem Tag="{Binding}">logn</ListBoxItem>
-														</ListBox>
+														<Border Background="White" BorderBrush="Black" BorderThickness="1">
+															<ListBox Items="{Binding $parent[Carousel].DataContext.AvailableButtons, Mode=TwoWay}">
+																<ListBox.ItemTemplate>
+																	<DataTemplate>
+																		<Button Command="{Binding $parent[Carousel].DataContext.ApplyNewButtonCommand}" CommandParameter="{Binding}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" Classes="Outline" Margin="5">
+																			<Image Width="25" Height="25">
+																				<Image.Source>
+																					<DrawingImage Drawing="{Binding Icon}" />
+																				</Image.Source>
+																			</Image>
+																		</Button>
+																	</DataTemplate>
+																</ListBox.ItemTemplate>
+
+																<ListBox.ItemsPanel>
+																	<ItemsPanelTemplate>
+																		<UniformGrid Columns="5" />
+																	</ItemsPanelTemplate>
+																</ListBox.ItemsPanel>
+															</ListBox>
+														</Border>
 													</Flyout>
 												</Button.Flyout>
 											</Button>
