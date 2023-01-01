@@ -24,7 +24,7 @@
 				<Carousel.DataTemplates>
 					<DataTemplate DataType="{x:Type kbLayout:LayoutPage}">
 						<Grid>
-							<Popup IsOpen="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" PlacementAnchor="VerticalMask">
+							<Popup IsLightDismissEnabled="True" IsOpen="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" PlacementAnchor="VerticalMask">
 								<Border Background="White" BorderBrush="Black" BorderThickness="1">
 									<ItemsPresenter Items="{Binding $parent[Carousel].DataContext.AvailableButtons, Mode=TwoWay}">
 										<ItemsPresenter.ItemTemplate>
