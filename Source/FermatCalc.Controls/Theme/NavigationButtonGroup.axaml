@@ -1,0 +1,39 @@
+<Styles xmlns="https://github.com/avaloniaui"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+		xmlns:controls="using:FermatCalc.Controls">
+	<Design.PreviewWith>
+		<controls:NavigationButtonGroup />
+	</Design.PreviewWith>
+
+	<Style Selector="controls|NavigationButtonGroup">
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border BorderThickness="1" BorderBrush="Black" CornerRadius="90" Width="100" Height="100">
+					<Grid>
+						<Grid.Styles>
+							<Style Selector="Button:pointerover Border">
+								<Setter Property="Background" Value="Transparent" />
+							</Style>
+						</Grid.Styles>
+						<Button VerticalAlignment="Top" Classes="Flat" Command="{TemplateBinding TopCommand}">
+							<icons:MaterialIconExt Size="15" Kind="ChevronUp" />
+						</Button>
+
+						<Button VerticalAlignment="Bottom" Classes="Flat" Command="{TemplateBinding BottomCommand}">
+							<icons:MaterialIconExt Size="15" Kind="ChevronDown" />
+						</Button>
+
+						<Button HorizontalAlignment="Left" Classes="Flat" Command="{TemplateBinding LeftCommand}">
+							<icons:MaterialIconExt Size="15" Kind="ChevronLeft" />
+						</Button>
+
+						<Button HorizontalAlignment="Right" Classes="Flat" Command="{TemplateBinding RightCommand}">
+							<icons:MaterialIconExt Size="15" Kind="ChevronRight" />
+						</Button>
+					</Grid>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+</Styles>

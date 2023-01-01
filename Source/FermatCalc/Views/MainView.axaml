@@ -29,8 +29,8 @@
 							</Style>
 						</ListBox.Styles>
 
-						<TextBlock Classes="Body2" Text="Calculator" FontSize="18" />
-						<TextBlock Classes="Body2" Text="Settings" FontSize="18" />
+						<TextBlock Classes="Body2" Text="Calculator" FontSize="18" Foreground="Black" />
+						<TextBlock Classes="Body2" Text="Settings" FontSize="18" Foreground="Black" />
 					</ListBox>
 				</material:NavigationDrawer.LeftDrawerContent>
 
@@ -42,6 +42,8 @@
 					</ToggleButton>
 
 					<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="35,0,35,0" Height="125" Background="#606745" />
+
+					<controls:NavigationButtonGroup Margin="0,25,0,0" HorizontalAlignment="Center" />
 				</StackPanel>
 			</material:NavigationDrawer>
 		</Grid>
