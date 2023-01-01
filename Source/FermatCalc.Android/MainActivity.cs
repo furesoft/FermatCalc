@@ -11,9 +11,9 @@ public class MainActivity : AvaloniaMainActivity
 {
     public override void OnBackPressed()
     {
-        if (Avalonia.Application.Current.ApplicationLifetime is ISingleViewApplicationLifetime lifetime)
+        if (Avalonia.Application.Current?.ApplicationLifetime is ISingleViewApplicationLifetime lifetime)
         {
-            if (lifetime.MainView.DataContext is MainViewModel vm)
+            if (lifetime?.MainView?.DataContext is MainViewModel vm)
             {
                 vm.SelectedPage--;
             }
