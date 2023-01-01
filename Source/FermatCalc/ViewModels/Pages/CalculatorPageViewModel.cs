@@ -15,7 +15,7 @@ public class CalculatorPageViewModel : ViewModelBase
         BackCommand = new BackCommand(this);
         ForwardCommand = new ForwardCommand(this);
 
-        InitKeyboard();
+        KeyboardLayout = Layout.NewEmptyKeyboard(30, 3);
         //KeyboardLayout.ApplyLayoutFrom(Layout.Load("testLayout.xaml"));
     }
 
@@ -37,21 +37,4 @@ public class CalculatorPageViewModel : ViewModelBase
     public ICommand BackCommand { get; set; }
 
     public ICommand ForwardCommand { get; set; }
-
-    private void InitKeyboard()
-    {
-        KeyboardLayout = new();
-
-        var page = new LayoutPage();
-
-        for (int i = 0; i < 30; i++)
-        {
-            var btn = new LayoutButton();
-            btn.ID = i;
-
-            page.Add(btn);
-        }
-
-        KeyboardLayout.Pages.Add(page);
-    }
 }

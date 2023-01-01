@@ -20,6 +20,28 @@ public class Layout : ReactiveObject
 
     public string? Name { get; set; }
 
+    public static Layout NewEmptyKeyboard(int buttonsPerPage, int pageCount = 1)
+    {
+        var layout = new Layout();
+
+        for (int pageIndex = 0; pageIndex < pageCount; pageIndex++)
+        {
+            var page = new LayoutPage();
+
+            for (int i = 0; i < buttonsPerPage; i++)
+            {
+                var btn = new LayoutButton();
+                btn.ID = i;
+
+                page.Add(btn);
+            }
+
+            layout.Pages.Add(page);
+        }
+
+        return layout;
+    }
+
     public static Layout Parse(string src)
     {
         return (Layout)XamlServices.Parse(src);
