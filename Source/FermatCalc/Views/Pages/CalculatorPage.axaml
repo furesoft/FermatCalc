@@ -9,7 +9,7 @@
 			 mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="510" Height="510"
 			 x:Class="FermatCalc.Views.Pages.CalculatorPage">
 	<StackPanel Margin="15" Spacing="15">
-		<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="125" Background="#606745" />
+		<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="125" Background="#d6e3d6" />
 
 		<Grid RowDefinitions="*,*">
 			<Button Command="{Binding BackCommand}" Content="&lt;" Margin="0,5,5,0" HorizontalAlignment="Left" Width="70" Height="40" Classes="Outline" />
@@ -17,7 +17,7 @@
 
 			<controls:NavigationButtonGroup Margin="0,5,0,0" HorizontalAlignment="Center" Grid.Column="1" />
 
-			<Carousel Grid.Row="1" Margin="0,15,0,0" SelectedIndex="{Binding SelectedButtonPage, Mode=TwoWay}"
+			<Carousel Grid.Row="1" Margin="0,15,0,0" SelectedIndex="{Binding SelectedPage, Mode=TwoWay}"
 					  Items="{Binding KeyboardLayout.Pages, Mode=TwoWay}" VerticalAlignment="Top">
 				<Carousel.DataTemplates>
 					<DataTemplate DataType="{x:Type kbLayout:LayoutPage}">
