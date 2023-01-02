@@ -24,27 +24,29 @@
 				<Carousel.DataTemplates>
 					<DataTemplate DataType="{x:Type kbLayout:LayoutPage}">
 						<Grid>
-							<Popup IsLightDismissEnabled="True" IsOpen="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" PlacementAnchor="VerticalMask">
+							<Popup Height="175" IsLightDismissEnabled="True" IsOpen="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" PlacementAnchor="VerticalMask">
 								<Border Background="White" BorderBrush="Black" BorderThickness="1">
-									<ItemsPresenter Items="{Binding $parent[Carousel].DataContext.AvailableButtons, Mode=TwoWay}">
-										<ItemsPresenter.ItemTemplate>
-											<DataTemplate>
-												<ToggleButton IsVisible="{Binding IsVisible}" IsChecked="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" Command="{Binding $parent[Carousel].DataContext.ApplyNewButtonCommand}" CommandParameter="{Binding}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" Classes="Outline" Margin="5">
-													<Image Width="25" Height="25">
-														<Image.Source>
-															<DrawingImage Drawing="{Binding Icon}" />
-														</Image.Source>
-													</Image>
-												</ToggleButton>
-											</DataTemplate>
-										</ItemsPresenter.ItemTemplate>
+									<ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+										<ItemsPresenter Height="220" Items="{Binding $parent[Carousel].DataContext.AvailableButtons, Mode=TwoWay}">
+											<ItemsPresenter.ItemTemplate>
+												<DataTemplate>
+													<ToggleButton IsVisible="{Binding IsVisible, Mode=TwoWay}" IsChecked="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" Command="{Binding $parent[Carousel].DataContext.ApplyNewButtonCommand}" CommandParameter="{Binding}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" Classes="Outline" Margin="5">
+														<Image Width="27" Height="27" Margin="3">
+															<Image.Source>
+																<DrawingImage Drawing="{Binding Icon}" />
+															</Image.Source>
+														</Image>
+													</ToggleButton>
+												</DataTemplate>
+											</ItemsPresenter.ItemTemplate>
 
-										<ItemsPresenter.ItemsPanel>
-											<ItemsPanelTemplate>
-												<UniformGrid Columns="5" />
-											</ItemsPanelTemplate>
-										</ItemsPresenter.ItemsPanel>
-									</ItemsPresenter>
+											<ItemsPresenter.ItemsPanel>
+												<ItemsPanelTemplate>
+													<UniformGrid Columns="5" />
+												</ItemsPanelTemplate>
+											</ItemsPresenter.ItemsPanel>
+										</ItemsPresenter>
+									</ScrollViewer>
 								</Border>
 							</Popup>
 

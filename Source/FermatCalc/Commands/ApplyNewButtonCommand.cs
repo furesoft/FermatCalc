@@ -38,5 +38,11 @@ internal class ApplyNewButtonCommand : ICommand
             var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == oldButton);
             navBtn.IsVisible = true;
         }
+
+        if (btn.Hint == "Remove")
+        {
+            var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == oldButton);
+            navBtn.IsVisible = true;
+        }
     }
 }
