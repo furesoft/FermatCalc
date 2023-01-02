@@ -33,6 +33,10 @@ public class CalculatorPageViewModel : ViewModelBase
         {
             var btn = new LayoutButton();
             btn.Display = res.Key.ToString();
+            btn.PropertyChanged += (s, e) =>
+            {
+                SortAvailableButtons();
+            };
 
             AvailableButtons.Add(btn);
         }
@@ -72,6 +76,7 @@ public class CalculatorPageViewModel : ViewModelBase
     }
 
     public ICommand ShowEditButtonPopupCommand { get; set; }
+
     public ICommand ApplyNewButtonCommand { get; set; }
 
     public LayoutButton OldButton
@@ -101,4 +106,9 @@ public class CalculatorPageViewModel : ViewModelBase
     public ICommand BackCommand { get; set; }
 
     public ICommand ForwardCommand { get; set; }
+
+    private void SortAvailableButtons()
+    {
+        AvailableButtons = new(AvailableButtons.OrderByDescending(_ => _.IsVisible).OrderBy(_ => string.IsNullOrEmpty(_.Display)));
+    }
 }

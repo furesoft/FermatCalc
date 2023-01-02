@@ -1,6 +1,7 @@
 ﻿using FermatCalc.KeyboardLayout;
 using FermatCalc.ViewModels.Pages;
 using System;
+using System.Linq;
 using System.Windows.Input;
 
 namespace FermatCalc.Commands;
@@ -24,8 +25,18 @@ internal class ApplyNewButtonCommand : ICommand
     public void Execute(object? parameter)
     {
         var btn = (LayoutButton)parameter;
+        var oldButton = calculatorPageViewModel.OldButton.Display;
 
         calculatorPageViewModel.OldButton.Display = btn.Display;
         calculatorPageViewModel.OldButton.ActionID = btn.ActionID;
+
+        if (!string.IsNullOrEmpty(btn.Display))
+        {
+            var avBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == btn.Display);
+            avBtn.IsVisible = false;
+
+            var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == oldButton);
+            navBtn.IsVisible = true;
+        }
     }
 }

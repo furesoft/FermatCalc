@@ -29,7 +29,7 @@
 									<ItemsPresenter Items="{Binding $parent[Carousel].DataContext.AvailableButtons, Mode=TwoWay}">
 										<ItemsPresenter.ItemTemplate>
 											<DataTemplate>
-												<ToggleButton IsChecked="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" Command="{Binding $parent[Carousel].DataContext.ApplyNewButtonCommand}" CommandParameter="{Binding}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" Classes="Outline" Margin="5">
+												<ToggleButton IsVisible="{Binding IsVisible}" IsChecked="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" Command="{Binding $parent[Carousel].DataContext.ApplyNewButtonCommand}" CommandParameter="{Binding}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" Classes="Outline" Margin="5">
 													<Image Width="25" Height="25">
 														<Image.Source>
 															<DrawingImage Drawing="{Binding Icon}" />
