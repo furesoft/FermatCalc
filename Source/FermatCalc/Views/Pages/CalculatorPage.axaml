@@ -8,7 +8,7 @@
 			 xmlns:ap="clr-namespace:FermatCalc.Helpers"
 			 xmlns:me="using:FermatCalc.MarkupExtensions"
 			 xmlns:kbLayout="clr-namespace:FermatCalc.KeyboardLayout;assembly=FermatCalc.KeyboardLayout"
-			 mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="510" Height="510"
+			 mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="510" Height="525"
 			 x:Class="FermatCalc.Views.Pages.CalculatorPage">
 	<StackPanel Margin="15" Spacing="15">
 		<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="125" Background="#d6e3d6" />
@@ -19,7 +19,7 @@
 
 			<controls:NavigationButtonGroup Margin="0,5,0,0" HorizontalAlignment="Center" Grid.Column="1" />
 
-			<Carousel Grid.Row="1" Margin="0,15,0,0" SelectedIndex="{Binding SelectedPage, Mode=TwoWay}"
+			<Carousel Grid.Row="1" Margin="0,10,0,0" SelectedIndex="{Binding SelectedPage, Mode=TwoWay}"
 					  Items="{Binding KeyboardLayout.Pages, Mode=TwoWay}" VerticalAlignment="Top">
 				<Carousel.DataTemplates>
 					<DataTemplate DataType="{x:Type kbLayout:LayoutPage}">
@@ -60,7 +60,7 @@
 												</Image>
 											</Button>
 
-											<Button CommandParameter="{Binding}" Command="{Binding $parent[Carousel].DataContext.ShowEditButtonPopupCommand}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding $parent[Window].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Margin="5">
+											<Button CommandParameter="{Binding}" Command="{Binding $parent[Carousel].DataContext.ShowEditButtonPopupCommand}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding $parent[Carousel].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Margin="5">
 												<Image Width="25" Height="25">
 													<Image.Source>
 														<DrawingImage Drawing="{Binding Icon}" />
@@ -81,6 +81,10 @@
 					</DataTemplate>
 				</Carousel.DataTemplates>
 			</Carousel>
+
+			<material:FloatingButton IsExtended="True" Width="10" Height="10" Command="{Binding ChangeEditModeCommand}" HorizontalAlignment="Center">
+				<icons:MaterialIconExt Size="25" Kind="Edit" />
+			</material:FloatingButton>
 		</Grid>
 	</StackPanel>
 </UserControl>

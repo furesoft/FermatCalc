@@ -9,7 +9,7 @@
 	<Style Selector="controls|NavigationButtonGroup">
 		<Setter Property="Template">
 			<ControlTemplate>
-				<Border BorderThickness="1" BorderBrush="Black" CornerRadius="90" Width="100" Height="100">
+				<Border BorderThickness="1" BorderBrush="Black" CornerRadius="90" Width="120" Height="120">
 					<Grid>
 						<Grid.Styles>
 							<Style Selector="Button:pointerover Border">

@@ -18,6 +18,7 @@ public class CalculatorPageViewModel : ViewModelBase
     private ObservableCollection<LayoutButton> _availableButtons = new();
 
     private bool _isReplacePopupOpened;
+    private bool _isEditMode;
 
     public CalculatorPageViewModel()
     {
@@ -40,7 +41,16 @@ public class CalculatorPageViewModel : ViewModelBase
 
         ShowEditButtonPopupCommand = new ShowButtonPopupCommand(this);
         ApplyNewButtonCommand = new ApplyNewButtonCommand(this);
+        ChangeEditModeCommand = new ChangeEditModeCommand(this);
     }
+
+    public bool IsEditMode
+    {
+        get { return _isEditMode; }
+        set { this.RaiseAndSetIfChanged(ref _isEditMode, value); }
+    }
+
+    public ICommand ChangeEditModeCommand { get; set; }
 
     public bool IsReplacePopupOpened
     {

@@ -36,15 +36,9 @@
 				</material:NavigationDrawer.LeftDrawerContent>
 
 				<StackPanel>
-					<Grid>
-						<ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15" Name="hamburgerToggle">
-							<icons:MaterialIconExt Size="25" Kind="HamburgerMenu" />
-						</ToggleButton>
-
-						<material:FloatingButton IsExtended="True" Width="10" Height="10" Command="{Binding ChangeEditModeCommand}" Margin="15" VerticalAlignment="Top" HorizontalAlignment="Right">
-							<icons:MaterialIconExt Size="25" Kind="Edit" />
-						</material:FloatingButton>
-					</Grid>
+					<ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,15,15,0" Name="hamburgerToggle">
+						<icons:MaterialIconExt Size="25" Kind="HamburgerMenu" />
+					</ToggleButton>
 
 					<Carousel Name="PageCarousel" HorizontalAlignment="Stretch">
 						<Carousel.Styles>

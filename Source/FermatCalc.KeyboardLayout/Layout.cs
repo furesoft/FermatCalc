@@ -60,6 +60,28 @@ public class Layout : ReactiveObject
         File.WriteAllText(path, serialized);
     }
 
+    public void SaveTidy(string path)
+    {
+        var layout = new Layout();
+
+        foreach (var page in Pages)
+        {
+            var p = new LayoutPage();
+
+            foreach (var btn in page)
+            {
+                if (!string.IsNullOrEmpty(btn.Display))
+                {
+                    p.Add(btn);
+                }
+            }
+
+            layout.Pages.Add(p);
+        }
+
+        layout.Save(path);
+    }
+
     public void ApplyLayoutFrom(Layout layout)
     {
         for (int i = 0; i < layout.Pages.Count; i++)
