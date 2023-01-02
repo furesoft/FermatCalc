@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:views="clr-namespace:FermatCalc.Views"
 		mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="570" WindowStartupLocation="CenterScreen"
-		x:Class="FermatCalc.Views.MainWindow" MinWidth="370" Width="370" Height="575"
+		x:Class="FermatCalc.Views.MainWindow" MinWidth="370" Width="700" Height="700"
 		Icon="avares://FermatCalc/Icon.ico"
 		Title="FermatCalc">
 	<views:MainView />

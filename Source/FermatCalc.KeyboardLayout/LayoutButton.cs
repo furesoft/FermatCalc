@@ -12,7 +12,21 @@ public class LayoutButton : ReactiveObject
     private bool _visible;
     private object _icon;
     private string _hint;
+    private bool _isShift;
+    private bool _isAlpha;
     public int ID { get; set; }
+
+    public bool IsShift
+    {
+        get { return _isShift; }
+        set { this.RaiseAndSetIfChanged(ref _isShift, value); }
+    }
+
+    public bool IsAlpha
+    {
+        get { return _isAlpha; }
+        set { this.RaiseAndSetIfChanged(ref _isAlpha, value); }
+    }
 
     public string Display
     {
