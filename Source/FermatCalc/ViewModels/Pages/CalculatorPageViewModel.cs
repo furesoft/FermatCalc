@@ -28,6 +28,7 @@ public class CalculatorPageViewModel : ViewModelBase
         KeyboardLayout = Layout.NewEmptyKeyboard(30, 1);
         KeyboardLayout.ApplyLayoutFrom(Layout.Load("testLayout.xaml"));
 
+        var layoutButtons = KeyboardLayout.Pages.SelectMany(_ => _);
         var resources = App.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().SelectMany(_ => _.Loaded);
         foreach (var res in resources)
         {
@@ -37,6 +38,8 @@ public class CalculatorPageViewModel : ViewModelBase
             {
                 SortAvailableButtons();
             };
+
+            btn.IsVisible = !layoutButtons.Any(_ => _.Display == btn.Display);
 
             AvailableButtons.Add(btn);
         }
