@@ -47,7 +47,14 @@ public class CalculatorPageViewModel : ViewModelBase
     public bool IsEditMode
     {
         get { return _isEditMode; }
-        set { this.RaiseAndSetIfChanged(ref _isEditMode, value); }
+        set
+        {
+            this.RaiseAndSetIfChanged(ref _isEditMode, value);
+            if (!value)
+            {
+                KeyboardLayout.SaveTidy("testLayout.xaml");
+            }
+        }
     }
 
     public ICommand ChangeEditModeCommand { get; set; }
