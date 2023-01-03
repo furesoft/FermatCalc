@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using FermatCalc.ViewModels;
 using FermatCalc.ViewModels.Pages;
 
 namespace FermatCalc.Views.Pages;
@@ -10,5 +11,6 @@ public partial class CalculatorPage : UserControl
         InitializeComponent();
 
         DataContext = new CalculatorPageViewModel();
+        ((ViewModelBase)DataContext).OnLoad();
     }
 }

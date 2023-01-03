@@ -30,17 +30,18 @@ internal class ApplyNewButtonCommand : ICommand
         calculatorPageViewModel.OldButton.Display = btn.Display;
         calculatorPageViewModel.OldButton.ActionID = btn.ActionID;
 
+        if (btn.Hint == "Remove")
+        {
+            var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == oldButton);
+            navBtn.IsVisible = true;
+            return;
+        }
+
         if (!string.IsNullOrEmpty(btn.Display))
         {
             var avBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == btn.Display);
             avBtn.IsVisible = false;
 
-            var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == oldButton);
-            navBtn.IsVisible = true;
-        }
-
-        if (btn.Hint == "Remove")
-        {
             var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == oldButton);
             navBtn.IsVisible = true;
         }

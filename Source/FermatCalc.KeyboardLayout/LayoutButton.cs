@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using ReactiveUI;
 using System.ComponentModel;
+using System.Windows.Input;
 
 namespace FermatCalc.KeyboardLayout;
 
@@ -14,6 +15,8 @@ public class LayoutButton : ReactiveObject
     private string _hint;
     private bool _isShift;
     private bool _isAlpha;
+
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int ID { get; set; }
 
     public bool IsShift
@@ -74,4 +77,7 @@ public class LayoutButton : ReactiveObject
         get { return _visible; }
         set { this.RaiseAndSetIfChanged(ref _visible, value); }
     }
+
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public ICommand Command { get; set; }
 }

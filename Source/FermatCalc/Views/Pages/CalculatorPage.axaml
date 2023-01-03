@@ -54,7 +54,7 @@
 								<ItemsPresenter.ItemTemplate>
 									<DataTemplate>
 										<Grid>
-											<Button ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Margin="5">
+											<Button ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Margin="5" Command="{Binding Command}">
 												<Image Width="30" Height="30">
 													<Image.Source>
 														<DrawingImage Drawing="{Binding Icon}" />

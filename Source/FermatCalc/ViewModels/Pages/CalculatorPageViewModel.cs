@@ -44,7 +44,7 @@ public class CalculatorPageViewModel : ViewModelBase
             AvailableButtons.Add(btn);
         }
 
-        AvailableButtons.Add(new LayoutButton() { Hint = "Remove" });
+        AvailableButtons.Add(new LayoutButton() { Hint = "Remove", Display = "Remove", IsVisible = true });
 
         ShowEditButtonPopupCommand = new ShowButtonPopupCommand(this);
         ApplyNewButtonCommand = new ApplyNewButtonCommand(this);
@@ -109,6 +109,19 @@ public class CalculatorPageViewModel : ViewModelBase
     public ICommand BackCommand { get; set; }
 
     public ICommand ForwardCommand { get; set; }
+
+    public override void OnLoad()
+    {
+        foreach (var btn in KeyboardLayout.Pages[0])
+        {
+            btn.Command = new DelegateCommand(_ =>
+            {
+                //var renderer = new NumberRenderer();
+
+                //  renderer.Render(btn.Display, null, new Cursor());
+            });
+        }
+    }
 
     private void SortAvailableButtons()
     {
