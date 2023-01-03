@@ -26,20 +26,30 @@ public class CalculatorPageViewModel : ViewModelBase
         ForwardCommand = new ForwardCommand(this);
 
         KeyboardLayout = Layout.NewEmptyKeyboard(96, 1);
-        KeyboardLayout.ApplyLayoutFrom(Layout.Load("testLayout.xaml"));
+        //KeyboardLayout.ApplyLayoutFrom(Layout.Load("testLayout.xaml"));
 
         var layoutButtons = KeyboardLayout.Pages.SelectMany(_ => _);
         var resources = App.Current.Resources.MergedDictionaries.OfType<ResourceInclude>().SelectMany(_ => _.Loaded);
-        foreach (var res in resources)
+
+        ActionRepository.Register("number:0", "number0", null, null);
+        ActionRepository.Register("number:1", "number1", null, null);
+        ActionRepository.Register("number:2", "number2", null, null);
+        ActionRepository.Register("number:3", "number3", null, null);
+        ActionRepository.Register("number:4", "number4", null, null);
+
+        foreach (var action in ActionRepository.Actions)
         {
             var btn = new LayoutButton();
-            btn.Display = res.Key.ToString();
+            btn.Display = action.Value.Display;
+            btn.ActionID = action.Key;
+            btn.Hint = action.Value.Hint;
+
             btn.PropertyChanged += (s, e) =>
             {
                 SortAvailableButtons();
             };
 
-            btn.IsVisible = !layoutButtons.Any(_ => _.Display == btn.Display);
+            btn.IsVisible = !layoutButtons.Any(_ => _.ActionID == btn.ActionID);
 
             AvailableButtons.Add(btn);
         }
@@ -116,15 +126,13 @@ public class CalculatorPageViewModel : ViewModelBase
         {
             btn.Command = new DelegateCommand(_ =>
             {
-                //var renderer = new NumberRenderer();
-
-                //  renderer.Render(btn.Display, null, new Cursor());
+                ActionRepository.Invoke(btn.ActionID);
             });
         }
     }
 
-    private void SortAvailableButtons()
+    public void SortAvailableButtons()
     {
-        AvailableButtons = new(AvailableButtons.OrderByDescending(_ => _.IsVisible).OrderBy(_ => string.IsNullOrEmpty(_.Display)));
+        AvailableButtons = new(AvailableButtons.OrderByDescending(_ => _.IsVisible).OrderBy(_ => _.Hint == "Remove"));
     }
 }

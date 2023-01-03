@@ -25,25 +25,39 @@ internal class ApplyNewButtonCommand : ICommand
     public void Execute(object? parameter)
     {
         var btn = (LayoutButton)parameter;
-        var oldButton = calculatorPageViewModel.OldButton.Display;
-
-        calculatorPageViewModel.OldButton.Display = btn.Display;
-        calculatorPageViewModel.OldButton.ActionID = btn.ActionID;
+        var oldButton = calculatorPageViewModel.OldButton;
+        var oldButtonActionID = calculatorPageViewModel.OldButton.ActionID;
 
         if (btn.Hint == "Remove")
         {
-            var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == oldButton);
+            oldButton.ActionID = null;
+            oldButton.Hint = null;
+            oldButton.Display = null;
+
+            var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.ActionID == oldButtonActionID);
             navBtn.IsVisible = true;
+
+            calculatorPageViewModel.SortAvailableButtons();
+
             return;
         }
 
-        if (!string.IsNullOrEmpty(btn.Display))
+        calculatorPageViewModel.OldButton.Display = btn.Display;
+        calculatorPageViewModel.OldButton.ActionID = btn.ActionID;
+        calculatorPageViewModel.OldButton.Hint = btn.Hint;
+
+        if (!string.IsNullOrEmpty(oldButtonActionID))
         {
-            var avBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == btn.Display);
+            var avBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.ActionID == btn.ActionID);
             avBtn.IsVisible = false;
 
-            var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.Display == oldButton);
+            var navBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.ActionID == oldButtonActionID);
             navBtn.IsVisible = true;
+        }
+        else
+        {
+            var avBtn = calculatorPageViewModel.AvailableButtons.First(_ => _.ActionID == btn.ActionID);
+            avBtn.IsVisible = false;
         }
     }
 }

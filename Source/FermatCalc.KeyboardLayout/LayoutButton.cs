@@ -16,7 +16,6 @@ public class LayoutButton : ReactiveObject
     private bool _isShift;
     private bool _isAlpha;
 
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int ID { get; set; }
 
     public bool IsShift
@@ -31,6 +30,7 @@ public class LayoutButton : ReactiveObject
         set { this.RaiseAndSetIfChanged(ref _isAlpha, value); }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string Display
     {
         get { return _display; }
@@ -52,6 +52,7 @@ public class LayoutButton : ReactiveObject
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string Hint
     {
         get { return _hint; }
