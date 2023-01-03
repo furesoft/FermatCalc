@@ -13,7 +13,7 @@ public static class ActionRepository
 
     public static void Register(string actionID, string display, string hint, object renderer)
     {
-        Actions.Add(actionID, new() { Display = display, Renderer = renderer, Hint = hint });
+        Actions.TryAdd(actionID, new() { Display = display, Renderer = renderer, Hint = hint });
     }
 }
 
