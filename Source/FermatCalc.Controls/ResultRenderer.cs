@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Media;
+using System.Globalization;
 
 namespace FermatCalc.Controls;
 
@@ -18,20 +19,11 @@ public class ResultRenderer
     {
         if (IsVisible)
         {
-            var equalsText = new FormattedText();
-            equalsText.Text = "=";
-            equalsText.FontSize = 30;
-            equalsText.Typeface = Typeface.Default;
+            var equalsText = new FormattedText("=", CultureInfo.InvariantCulture, FlowDirection.LeftToRight, Typeface.Default, 30, Brushes.Black);
+            context.DrawText(equalsText, new Point(10, display.Bounds.Height - equalsText.Height - 10));
 
-            context.DrawText(Brushes.Black, new Point(10, display.Bounds.Height - equalsText.Bounds.Height - 10), equalsText);
-
-            var resultText = new FormattedText();
-
-            resultText.Text = "42";
-            resultText.FontSize = 30;
-            resultText.Typeface = Typeface.Default;
-
-            context.DrawText(Brushes.Black, new Point(display.Bounds.Width - resultText.Bounds.Width - 10, display.Bounds.Height - resultText.Bounds.Height - 10), resultText);
+            var resultText = new FormattedText("3", CultureInfo.InvariantCulture, FlowDirection.LeftToRight, Typeface.Default, 30, Brushes.Black);
+            context.DrawText(resultText, new Point(display.Bounds.Width - resultText.Width - 10, display.Bounds.Height - resultText.Height - 10));
         }
     }
 }

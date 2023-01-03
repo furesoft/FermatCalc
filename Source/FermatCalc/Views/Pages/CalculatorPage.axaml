@@ -7,15 +7,11 @@
 			 xmlns:controls="clr-namespace:FermatCalc.Controls;assembly=FermatCalc.Controls"
 			 xmlns:ap="clr-namespace:FermatCalc.Helpers"
 			 xmlns:me="using:FermatCalc.MarkupExtensions"
-			 xmlns:math="clr-namespace:CSharpMath.Avalonia;assembly=CSharpMath.Avalonia"
 			 xmlns:kbLayout="clr-namespace:FermatCalc.KeyboardLayout;assembly=FermatCalc.KeyboardLayout"
 			 mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="510" MinHeight="525"
 			 x:Class="FermatCalc.Views.Pages.CalculatorPage">
 	<StackPanel Margin="15" Spacing="15">
-		<Grid>
-			<math:TextView LaTeX="40+2" />
-			<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="125" Background="#d6e3d6" />
-		</Grid>
+		<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="125" Background="#d6e3d6" />
 
 		<Grid RowDefinitions="*,*">
 			<Button Command="{Binding BackCommand}" Content="&lt;" Margin="0,5,5,0" HorizontalAlignment="Left" Width="70" Height="40" Classes="Outline" />
