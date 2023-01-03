@@ -11,8 +11,10 @@ public class Cursor
     public readonly int Height = 40;
     private readonly Timer timer;
 
-    public Cursor()
+    public Cursor(Display display)
     {
+        Display = display;
+
         timer = new Timer();
         timer.Interval = 1000;
         timer.Elapsed += Timer_Elapsed;
