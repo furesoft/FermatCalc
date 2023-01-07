@@ -1,10 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using AuroraModularis.Core;
+using FermatCalc.Controls;
+using System.Collections.Generic;
 
 namespace FermatCalc;
 
 public static class ActionRepository
 {
     public static readonly Dictionary<string, ActionItem> Actions = new();
+
+    static ActionRepository()
+    {
+        Actions.Add("=", new ResultActionItem());
+    }
 
     public static void Invoke(string actionID)
     {
@@ -23,7 +30,23 @@ public class ActionItem
     public string Display { get; set; }
     public string Hint { get; set; }
 
-    public void Invoke()
+    public virtual void Invoke()
     {
+    }
+}
+
+public class ResultActionItem : ActionItem
+{
+    public ResultActionItem()
+    {
+        Display = "equals";
+    }
+
+    public override void Invoke()
+    {
+        CalculationEngine.AppendToBuffer("1+2");
+
+        CalculationEngine.Evaluate();
+        Container.Current.Resolve<Display>().Result = CalculationEngine.Result;
     }
 }

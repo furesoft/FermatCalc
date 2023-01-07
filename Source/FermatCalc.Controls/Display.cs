@@ -1,3 +1,4 @@
+using AuroraModularis.Core;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
@@ -12,8 +13,6 @@ public class Display : Control
     public static StyledProperty<IBrush> BackgroundProperty = AvaloniaProperty.Register<Display, IBrush>(nameof(Background), Brushes.Beige);
     private readonly Cursor cursor;
     private readonly ResultRenderer resultRenderer;
-
-    private bool rendered = false;
 
     public Display()
     {
@@ -33,6 +32,21 @@ public class Display : Control
             });
         };
         renderTimer.Start();
+
+        Container.Current.Register(this).AsSingleton();
+    }
+
+    public string Result
+    {
+        get
+        {
+            return resultRenderer.Result;
+        }
+        set
+        {
+            resultRenderer.Result = value;
+            resultRenderer.IsVisible = true;
+        }
     }
 
     public IBrush Background
@@ -54,7 +68,6 @@ public class Display : Control
         RenderInput(context);
         cursor.Render(context);
 
-        resultRenderer.IsVisible = true;
         resultRenderer.Render(context);
     }
 

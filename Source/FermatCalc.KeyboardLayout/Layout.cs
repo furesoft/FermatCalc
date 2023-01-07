@@ -2,6 +2,7 @@
 using Portable.Xaml.Markup;
 using ReactiveUI;
 using System.IO;
+using System.Runtime.InteropServices;
 
 [assembly: XmlnsDefinition("http://schemas.furesoft.org/FermatCalc", "FermatCalc.KeyboardLayout")]
 
@@ -19,6 +20,7 @@ public class Layout : ReactiveObject
     }
 
     public string? Name { get; set; }
+    public string Platform { get; set; }
 
     public static Layout NewEmptyKeyboard(int buttonsPerPage, int pageCount = 1)
     {
@@ -55,6 +57,12 @@ public class Layout : ReactiveObject
 
     public void Save(string path)
     {
+        if (string.IsNullOrEmpty(Platform))
+        {
+            var architectur = RuntimeInformation.OSArchitecture.ToString();
+            Platform = RuntimeInformation.RuntimeIdentifier[..^(architectur.Length + 1)];
+        }
+
         var serialized = XamlServices.Save(this);
 
         File.WriteAllText(path, serialized);
