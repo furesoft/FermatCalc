@@ -30,7 +30,6 @@ public class LayoutButton : ReactiveObject
         set { this.RaiseAndSetIfChanged(ref _isAlpha, value); }
     }
 
-    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string Display
     {
         get { return _display; }
