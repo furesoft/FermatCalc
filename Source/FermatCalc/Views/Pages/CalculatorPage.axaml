@@ -14,8 +14,8 @@
 		<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="125" Background="#d6e3d6" />
 
 		<Grid RowDefinitions="*,*">
-			<Button Command="{Binding BackCommand}" Content="&lt;" Margin="0,5,5,0" HorizontalAlignment="Left" Width="70" Height="40" Classes="Outline" />
-			<Button Command="{Binding ForwardCommand}" Content="&gt;" Margin="0,5,5,0" HorizontalAlignment="Right" Width="70" Height="40" Classes="Outline" />
+			<ToggleButton IsChecked="{Binding IsShift, Mode=TwoWay}" Content="Shift" Margin="0,5,5,0" HorizontalAlignment="Left" Width="70" Height="40" Classes="Outline" />
+			<ToggleButton IsChecked="{Binding IsAlpha, Mode=TwoWay}" Content="Alpha" Margin="0,5,5,0" HorizontalAlignment="Right" Width="70" Height="40" Classes="Outline" />
 
 			<Grid HorizontalAlignment="Center" Grid.Column="1">
 				<controls:NavigationButtonGroup Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />

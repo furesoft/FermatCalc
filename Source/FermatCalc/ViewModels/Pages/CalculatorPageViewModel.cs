@@ -20,12 +20,16 @@ public class CalculatorPageViewModel : ViewModelBase
     private bool _isReplacePopupOpened;
     private bool _isEditMode;
 
+    private bool _isAlpha;
+
+    private bool _isShift;
+
     public CalculatorPageViewModel()
     {
         BackCommand = new BackCommand(this);
         ForwardCommand = new ForwardCommand(this);
 
-        KeyboardLayout = Layout.NewEmptyKeyboard(96, 1);
+        KeyboardLayout = Layout.NewEmptyKeyboard(96, 4);
         KeyboardLayout.ApplyLayoutFrom(Layout.Load("testLayout.xaml"));
 
         var layoutButtons = KeyboardLayout.Pages.SelectMany(_ => _);
@@ -98,6 +102,42 @@ public class CalculatorPageViewModel : ViewModelBase
         set
         {
             this.RaiseAndSetIfChanged(ref _oldButton, value);
+        }
+    }
+
+    public bool IsAlpha
+    {
+        get { return _isAlpha; }
+        set
+        {
+            this.RaiseAndSetIfChanged(ref _isAlpha, value);
+
+            if (value)
+            {
+                SelectedPage += 1;
+            }
+            else
+            {
+                SelectedPage -= 1;
+            }
+        }
+    }
+
+    public bool IsShift
+    {
+        get { return _isShift; }
+        set
+        {
+            this.RaiseAndSetIfChanged(ref _isShift, value);
+
+            if (value)
+            {
+                SelectedPage += 2;
+            }
+            else
+            {
+                SelectedPage -= 2;
+            }
         }
     }
 
