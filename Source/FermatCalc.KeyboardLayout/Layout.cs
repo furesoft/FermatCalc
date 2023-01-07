@@ -2,6 +2,7 @@
 using Portable.Xaml.Markup;
 using ReactiveUI;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 [assembly: XmlnsDefinition("http://schemas.furesoft.org/FermatCalc", "FermatCalc.KeyboardLayout")]
@@ -98,7 +99,11 @@ public class Layout : ReactiveObject
 
             foreach (var btn in page)
             {
-                Pages[i][btn.ID].Display = btn.Display;
+                var actualbtn = Pages[i].First(_ => _.ID == btn.ID);
+
+                actualbtn.Display = btn.Display;
+                actualbtn.ActionID = btn.ActionID;
+                actualbtn.Hint = btn.Hint;
             }
         }
     }

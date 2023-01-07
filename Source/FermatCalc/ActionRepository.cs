@@ -10,6 +10,7 @@ public static class ActionRepository
     static ActionRepository()
     {
         Actions.Add("=", new ResultActionItem());
+        Actions.Add("ac", new ClearActionItem());
     }
 
     public static void Invoke(string actionID)

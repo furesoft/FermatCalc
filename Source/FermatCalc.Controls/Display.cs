@@ -34,6 +34,7 @@ public class Display : Control
         renderTimer.Start();
 
         Container.Current.Register(this).AsSingleton();
+        Container.Current.Register(Cursor).AsSingleton();
     }
 
     public string Result
@@ -45,9 +46,11 @@ public class Display : Control
         set
         {
             resultRenderer.Result = value;
-            resultRenderer.IsVisible = true;
+            resultRenderer.IsVisible = !string.IsNullOrEmpty(value);
         }
     }
+
+    public string Input { get; set; }
 
     public IBrush Background
     {
@@ -81,7 +84,7 @@ public class Display : Control
     private void RenderInput(DrawingContext context)
     {
         var painter = new CSharpMath.SkiaSharp.MathPainter();
-        painter.LaTeX = @"\lfloor(log(420))\rfloor+1";
+        painter.LaTeX = Input;
         painter.TextColor = SKColors.Black;
         painter.AntiAlias = true;
         painter.FontSize = 30;

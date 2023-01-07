@@ -40,6 +40,11 @@ public class CalculatorPageViewModel : ViewModelBase
         ActionRepository.Register("number:2", "number2", null, null);
         ActionRepository.Register("number:3", "number3", null, null);
         ActionRepository.Register("number:4", "number4", null, null);
+        ActionRepository.Register("number:5", "number5", null, null);
+        ActionRepository.Register("number:6", "number6", null, null);
+        ActionRepository.Register("number:7", "number7", null, null);
+        ActionRepository.Register("number:8", "number8", null, null);
+        ActionRepository.Register("number:9", "number9", null, null);
 
         foreach (var action in ActionRepository.Actions)
         {

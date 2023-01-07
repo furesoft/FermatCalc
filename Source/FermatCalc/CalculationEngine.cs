@@ -1,13 +1,13 @@
-﻿using NiL.JS.BaseLibrary;
+﻿using AuroraModularis.Core;
+using FermatCalc.Controls;
+using NiL.JS.BaseLibrary;
 using NiL.JS.Core;
-using System.Text;
 
 namespace FermatCalc;
 
 public static class CalculationEngine
 {
     public static string Result;
-    private static StringBuilder buffer = new();
     private static Context context = new();
 
     static CalculationEngine()
@@ -17,12 +17,17 @@ public static class CalculationEngine
 
     public static void AppendToBuffer(string text)
     {
-        buffer.Append(text);
+        Container.Current.Resolve<Display>().Input += text;
     }
 
     public static void Evaluate()
     {
-        Result = context.Eval(buffer.ToString()).ToString();
-        buffer = new();
+        Result = context.Eval(Container.Current.Resolve<Display>().Input).ToString();
+    }
+
+    public static void ClearBuffer()
+    {
+        Container.Current.Resolve<Display>().Input = "";
+        Container.Current.Resolve<Cursor>().Position = new(10, 10);
     }
 }
