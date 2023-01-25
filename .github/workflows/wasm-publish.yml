@@ -27,6 +27,9 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish Source/FermatCalc.Web/FermatCalc.Web.csproj -c Release --nologo
       
+    - name: LS
+      run: ls Source/FermatCalc.Web/bin/Release/net7.0/publish/
+      
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
