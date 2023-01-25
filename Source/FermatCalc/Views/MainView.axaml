@@ -1,17 +1,60 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:viewModels="clr-namespace:FermatCalc.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="FermatCalc.Views.MainView"
-             Foreground="White"
-             Background="#171C2C">
-  <Design.DataContext>
-    <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-    <viewModels:MainViewModel />
-  </Design.DataContext>
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+			 xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			 xmlns:material="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+			 xmlns:controls="clr-namespace:FermatCalc.Controls;assembly=FermatCalc.Controls"
+			 xmlns:pages="using:FermatCalc.Views.Pages"
+			 xmlns:viewModels="clr-namespace:FermatCalc.ViewModels"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="800"
+			 x:Class="FermatCalc.Views.MainView"
+			 Foreground="White"
+			 Background="#171C2C">
+	<Design.DataContext>
+		<viewModels:MainViewModel />
+	</Design.DataContext>
 
-  <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<material:ColorZone Height="{Binding $parent[Window].Height}" Width="{Binding $parent[Window].Width}" Mode="Standard">
+		<Grid>
+			<material:NavigationDrawer Name="drawer" LeftDrawerOpened="{Binding #hamburgerToggle.IsChecked, Mode=TwoWay}">
+				<material:NavigationDrawer.LeftDrawerContent>
+					<ListBox Grid.Row="1" Classes="Drawer" Name="Drawer" VerticalAlignment="Top" SelectedIndex="{Binding #PageCarousel.SelectedIndex, Mode=TwoWay}">
+						<ListBox.Styles>
+							<Style Selector="ListBoxItem">
+								<Setter Property="Height" Value="48" />
+								<Setter Property="Padding" Value="16,0" />
+								<Setter Property="VerticalContentAlignment" Value="Center" />
+								<Setter Property="IsEnabled" Value="{Binding $self.Content.IsEnabled}" />
+							</Style>
+						</ListBox.Styles>
+
+						<TextBlock Classes="Body2" Text="Calculator" FontSize="18" Foreground="Black" />
+						<TextBlock Classes="Body2" Text="Settings" FontSize="18" Foreground="Black" />
+					</ListBox>
+				</material:NavigationDrawer.LeftDrawerContent>
+
+				<StackPanel>
+					<ToggleButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,15,15,0" Name="hamburgerToggle">
+						<icons:MaterialIconExt Size="25" Kind="HamburgerMenu" />
+					</ToggleButton>
+
+					<Carousel Name="PageCarousel" HorizontalAlignment="Stretch">
+						<Carousel.Styles>
+							<Style Selector="Carousel#PageCarousel">
+								<Setter Property="PageTransition">
+									<PageSlide Duration="0.25" SlideOutEasing="CircularEaseOut"
+											   SlideInEasing="CircularEaseOut" />
+								</Setter>
+							</Style>
+						</Carousel.Styles>
+
+						<pages:CalculatorPage />
+						<pages:SettingsPage />
+					</Carousel>
+				</StackPanel>
+			</material:NavigationDrawer>
+		</Grid>
+	</material:ColorZone>
 </UserControl>

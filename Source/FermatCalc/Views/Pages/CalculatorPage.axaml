@@ -1,0 +1,94 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:icons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+			 xmlns:material="clr-namespace:Material.Styles.Controls;assembly=Material.Styles"
+			 xmlns:controls="clr-namespace:FermatCalc.Controls;assembly=FermatCalc.Controls"
+			 xmlns:ap="clr-namespace:FermatCalc.Helpers"
+			 xmlns:me="using:FermatCalc.MarkupExtensions"
+			 xmlns:kbLayout="clr-namespace:FermatCalc.KeyboardLayout;assembly=FermatCalc.KeyboardLayout"
+			 mc:Ignorable="d" d:DesignWidth="370" d:DesignHeight="510" MinHeight="525"
+			 x:Class="FermatCalc.Views.Pages.CalculatorPage">
+	<StackPanel Margin="15" Spacing="15">
+		<controls:Display HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="125" Background="#d6e3d6" />
+
+		<Grid RowDefinitions="*,*">
+			<ToggleButton IsChecked="{Binding IsShift, Mode=TwoWay}" Content="Shift" Margin="0,5,5,0" HorizontalAlignment="Left" Width="70" Height="40" Classes="Outline" />
+			<ToggleButton IsChecked="{Binding IsAlpha, Mode=TwoWay}" Content="Alpha" Margin="0,5,5,0" HorizontalAlignment="Right" Width="70" Height="40" Classes="Outline" />
+
+			<Grid HorizontalAlignment="Center" Grid.Column="1">
+				<controls:NavigationButtonGroup Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+				<material:FloatingButton IsExtended="True" Width="10" Height="10" Command="{Binding ChangeEditModeCommand}" HorizontalAlignment="Center" VerticalAlignment="Center">
+					<icons:MaterialIconExt Size="25" Kind="Edit" />
+				</material:FloatingButton>
+			</Grid>
+
+			<Carousel Grid.Row="1" Margin="0,10,0,0" SelectedIndex="{Binding SelectedPage, Mode=TwoWay}"
+					  Items="{Binding KeyboardLayout.Pages, Mode=TwoWay}" VerticalAlignment="Top">
+				<Carousel.DataTemplates>
+					<DataTemplate DataType="{x:Type kbLayout:LayoutPage}">
+						<Grid>
+							<Popup Height="350" Width="350" IsLightDismissEnabled="True" IsOpen="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" PlacementAnchor="VerticalMask">
+								<Border Background="White" BorderBrush="Black" BorderThickness="1">
+									<ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+										<ItemsPresenter Height="220" Items="{Binding $parent[Carousel].DataContext.AvailableButtons, Mode=TwoWay}">
+											<ItemsPresenter.ItemTemplate>
+												<DataTemplate>
+													<ToggleButton IsVisible="{Binding IsVisible, Mode=TwoWay}" IsChecked="{Binding $parent[Carousel].DataContext.IsReplacePopupOpened, Mode=TwoWay}" Command="{Binding $parent[Carousel].DataContext.ApplyNewButtonCommand}" CommandParameter="{Binding}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" Classes="Outline" Margin="5">
+														<Image Width="27" Height="27" Margin="3">
+															<Image.Source>
+																<DrawingImage Drawing="{Binding Icon}" />
+															</Image.Source>
+														</Image>
+													</ToggleButton>
+												</DataTemplate>
+											</ItemsPresenter.ItemTemplate>
+
+											<ItemsPresenter.ItemsPanel>
+												<ItemsPanelTemplate>
+													<UniformGrid Columns="5" />
+												</ItemsPanelTemplate>
+											</ItemsPresenter.ItemsPanel>
+										</ItemsPresenter>
+									</ScrollViewer>
+								</Border>
+							</Popup>
+
+							<ItemsPresenter Items="{Binding Mode=TwoWay}">
+								<ItemsPresenter.ItemTemplate>
+									<DataTemplate>
+										<Grid>
+											<Button ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding IsVisible, Mode=TwoWay}" Classes="Outline" Margin="5" Command="{Binding Command}">
+												<Image Width="30" Height="30">
+													<Image.Source>
+														<DrawingImage Drawing="{Binding Icon}" />
+													</Image.Source>
+												</Image>
+											</Button>
+
+											<Button CommandParameter="{Binding}" Command="{Binding $parent[Carousel].DataContext.ShowEditButtonPopupCommand}" ToolTip.Tip="{Binding Hint}" Tag="{Binding ID}" IsVisible="{Binding $parent[Carousel].DataContext.IsEditMode, Mode=TwoWay}" Classes="Outline" Margin="5">
+												<Image Width="30" Height="30">
+													<Image.Source>
+														<DrawingImage Drawing="{Binding Icon}" />
+													</Image.Source>
+												</Image>
+											</Button>
+										</Grid>
+									</DataTemplate>
+								</ItemsPresenter.ItemTemplate>
+
+								<ItemsPresenter.ItemsPanel>
+									<ItemsPanelTemplate>
+										<WrapPanel ItemWidth="55" ItemHeight="45" />
+									</ItemsPanelTemplate>
+								</ItemsPresenter.ItemsPanel>
+							</ItemsPresenter>
+						</Grid>
+					</DataTemplate>
+				</Carousel.DataTemplates>
+			</Carousel>
+		</Grid>
+	</StackPanel>
+</UserControl>
