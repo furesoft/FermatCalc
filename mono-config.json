@@ -5,6 +5,10 @@
   "assets": [
     {
       "behavior": "assembly",
+      "name": "AuroraModularis.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "Avalonia.Base.dll"
     },
     {
@@ -33,15 +37,35 @@
     },
     {
       "behavior": "assembly",
-      "name": "Avalonia.Themes.Fluent.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "Avalonia.Web.dll"
     },
     {
       "behavior": "assembly",
+      "name": "CSharpMath.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "CSharpMath.Rendering.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "CSharpMath.SkiaSharp.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "FermatCalc.Controls.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "FermatCalc.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "FermatCalc.JS.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "FermatCalc.KeyboardLayout.dll"
     },
     {
       "behavior": "assembly",
@@ -50,6 +74,26 @@
     {
       "behavior": "assembly",
       "name": "HarfBuzzSharp.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "Material.Colors.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "Material.Icons.Avalonia.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "Material.Icons.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "Material.Styles.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "Portable.Xaml.dll"
     },
     {
       "behavior": "assembly",
@@ -106,6 +150,14 @@
     {
       "behavior": "assembly",
       "name": "System.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Drawing.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Drawing.Primitives.dll"
     },
     {
       "behavior": "assembly",
