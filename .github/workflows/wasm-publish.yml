@@ -32,4 +32,4 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: Source/FermatCalc.Web/bin/Release/net7.0/browser-wasm/AppBundle
+        FOLDER: Source/FermatCalc.Web/bin/Debug/net7.0/browser-wasm/AppBundle
