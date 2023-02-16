@@ -17,6 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TrimmerRootDescriptor Include="Roots.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FermatCalc\FermatCalc.csproj" />
   </ItemGroup>
 </Project>
