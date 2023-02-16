@@ -209,7 +209,27 @@
     },
     {
       "behavior": "assembly",
+      "name": "Microsoft.VisualBasic.Core.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "Microsoft.VisualBasic.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "Microsoft.Win32.Primitives.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "Microsoft.Win32.Registry.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "Microsoft.Win32.SystemEvents.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "mscorlib.dll"
     },
     {
       "behavior": "assembly",
@@ -241,6 +261,10 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.AppContext.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Buffers.dll"
     },
     {
@@ -269,6 +293,10 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.ComponentModel.DataAnnotations.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.ComponentModel.dll"
     },
     {
@@ -289,11 +317,31 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Configuration.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Console.dll"
     },
     {
       "behavior": "assembly",
+      "name": "System.Core.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Data.Common.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Data.DataSetExtensions.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Data.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Diagnostics.Contracts.dll"
     },
     {
       "behavior": "assembly",
@@ -305,6 +353,10 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Diagnostics.FileVersionInfo.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Diagnostics.Process.dll"
     },
     {
@@ -313,7 +365,19 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Diagnostics.TextWriterTraceListener.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Diagnostics.Tools.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Diagnostics.TraceSource.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Diagnostics.Tracing.dll"
     },
     {
       "behavior": "assembly",
@@ -333,7 +397,31 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Dynamic.Runtime.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Formats.Asn1.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Formats.Tar.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Globalization.Calendars.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Globalization.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Globalization.Extensions.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.Compression.Brotli.dll"
     },
     {
       "behavior": "assembly",
@@ -341,11 +429,55 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.IO.Compression.FileSystem.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.Compression.ZipFile.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.FileSystem.AccessControl.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.IO.FileSystem.dll"
     },
     {
       "behavior": "assembly",
+      "name": "System.IO.FileSystem.DriveInfo.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.FileSystem.Primitives.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.FileSystem.Watcher.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.IsolatedStorage.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.IO.MemoryMappedFiles.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.Pipes.AccessControl.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.Pipes.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.IO.UnmanagedMemoryStream.dll"
     },
     {
       "behavior": "assembly",
@@ -369,7 +501,23 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Net.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Net.Http.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.Http.Json.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.HttpListener.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.Mail.dll"
     },
     {
       "behavior": "assembly",
@@ -377,7 +525,31 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Net.NetworkInformation.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.Ping.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Net.Primitives.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.Quic.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.Requests.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.Security.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.ServicePoint.dll"
     },
     {
       "behavior": "assembly",
@@ -386,6 +558,26 @@
     {
       "behavior": "assembly",
       "name": "System.Net.WebClient.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.WebHeaderCollection.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.WebProxy.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.WebSockets.Client.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Net.WebSockets.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Numerics.dll"
     },
     {
       "behavior": "assembly",
@@ -398,6 +590,10 @@
     {
       "behavior": "assembly",
       "name": "System.Private.CoreLib.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Private.DataContractSerialization.dll"
     },
     {
       "behavior": "assembly",
@@ -421,11 +617,27 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Reflection.DispatchProxy.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Reflection.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Reflection.Emit.dll"
     },
     {
       "behavior": "assembly",
       "name": "System.Reflection.Emit.ILGeneration.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Reflection.Emit.Lightweight.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Reflection.Extensions.dll"
     },
     {
       "behavior": "assembly",
@@ -437,11 +649,27 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Reflection.TypeExtensions.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Resources.Reader.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Resources.ResourceManager.dll"
     },
     {
       "behavior": "assembly",
+      "name": "System.Resources.Writer.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Runtime.CompilerServices.Unsafe.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Runtime.CompilerServices.VisualC.dll"
     },
     {
       "behavior": "assembly",
@@ -450,6 +678,10 @@
     {
       "behavior": "assembly",
       "name": "System.Runtime.Extensions.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Runtime.Handles.dll"
     },
     {
       "behavior": "assembly",
@@ -465,6 +697,10 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Runtime.Intrinsics.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Runtime.Loader.dll"
     },
     {
@@ -473,11 +709,23 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Runtime.Serialization.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Runtime.Serialization.Formatters.dll"
     },
     {
       "behavior": "assembly",
+      "name": "System.Runtime.Serialization.Json.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Runtime.Serialization.Primitives.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Runtime.Serialization.Xml.dll"
     },
     {
       "behavior": "assembly",
@@ -493,11 +741,23 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Security.Cryptography.Cng.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Security.Cryptography.Csp.dll"
     },
     {
       "behavior": "assembly",
       "name": "System.Security.Cryptography.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Security.Cryptography.Encoding.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Security.Cryptography.OpenSsl.dll"
     },
     {
       "behavior": "assembly",
@@ -513,6 +773,10 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Security.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Security.Permissions.dll"
     },
     {
@@ -525,7 +789,23 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Security.SecureString.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.ServiceModel.Web.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.ServiceProcess.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Text.Encoding.CodePages.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Text.Encoding.dll"
     },
     {
       "behavior": "assembly",
@@ -545,11 +825,27 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Threading.Channels.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Threading.dll"
     },
     {
       "behavior": "assembly",
+      "name": "System.Threading.Overlapped.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Threading.Tasks.Dataflow.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Threading.Tasks.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Threading.Tasks.Extensions.dll"
     },
     {
       "behavior": "assembly",
@@ -565,7 +861,39 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Threading.Timer.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Transactions.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Transactions.Local.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.ValueTuple.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Web.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Web.HttpUtility.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Windows.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Windows.Extensions.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Xml.dll"
     },
     {
       "behavior": "assembly",
@@ -577,11 +905,31 @@
     },
     {
       "behavior": "assembly",
+      "name": "System.Xml.Serialization.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Xml.XDocument.dll"
     },
     {
       "behavior": "assembly",
+      "name": "System.Xml.XmlDocument.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Xml.XmlSerializer.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "System.Xml.XPath.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "System.Xml.XPath.XDocument.dll"
+    },
+    {
+      "behavior": "assembly",
+      "name": "WindowsBase.dll"
     },
     {
       "culture": "cs",

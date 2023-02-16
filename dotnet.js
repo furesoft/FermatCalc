@@ -5469,6 +5469,19 @@ var ASM_CONSTS = {
   }
   }
 
+  function ___syscall_symlink(target, linkpath) {
+  try {
+  
+      target = SYSCALLS.getStr(target);
+      linkpath = SYSCALLS.getStr(linkpath);
+      FS.symlink(target, linkpath);
+      return 0;
+    } catch (e) {
+    if (typeof FS == 'undefined' || !(e instanceof FS.ErrnoError)) throw e;
+    return -e.errno;
+  }
+  }
+
   function ___syscall_unlinkat(dirfd, path, flags) {
   try {
   
@@ -5512,6 +5525,13 @@ var ASM_CONSTS = {
     return -e.errno;
   }
   }
+
+  function __dlinit(main_dso_handle) {}
+
+  var dlopenMissingError =  'To use dlopen, you need enable dynamic linking, see https://github.com/emscripten-core/emscripten/wiki/Linking';
+  function __dlopen_js(filename, flag) {
+      abort(dlopenMissingError);
+    }
 
   function __emscripten_date_now() {
       return Date.now();
@@ -8279,8 +8299,11 @@ var asmLibraryArg = {
   "__syscall_sendto": ___syscall_sendto,
   "__syscall_socket": ___syscall_socket,
   "__syscall_stat64": ___syscall_stat64,
+  "__syscall_symlink": ___syscall_symlink,
   "__syscall_unlinkat": ___syscall_unlinkat,
   "__syscall_utimensat": ___syscall_utimensat,
+  "_dlinit": __dlinit,
+  "_dlopen_js": __dlopen_js,
   "_emscripten_date_now": __emscripten_date_now,
   "_emscripten_get_now_is_monotonic": __emscripten_get_now_is_monotonic,
   "_emscripten_throw_longjmp": __emscripten_throw_longjmp,
@@ -8884,6 +8907,16 @@ var _mono_set_timeout_exec = Module["_mono_set_timeout_exec"] = function() {
 };
 
 /** @type {function(...*):?} */
+var _ntohs = Module["_ntohs"] = function() {
+  return (_ntohs = Module["_ntohs"] = Module["asm"]["ntohs"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var _htons = Module["_htons"] = function() {
+  return (_htons = Module["_htons"] = Module["asm"]["htons"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
 var ___dl_seterr = Module["___dl_seterr"] = function() {
   return (___dl_seterr = Module["___dl_seterr"] = Module["asm"]["__dl_seterr"]).apply(null, arguments);
 };
@@ -8894,18 +8927,8 @@ var _htonl = Module["_htonl"] = function() {
 };
 
 /** @type {function(...*):?} */
-var _htons = Module["_htons"] = function() {
-  return (_htons = Module["_htons"] = Module["asm"]["htons"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
 var _emscripten_builtin_memalign = Module["_emscripten_builtin_memalign"] = function() {
   return (_emscripten_builtin_memalign = Module["_emscripten_builtin_memalign"] = Module["asm"]["emscripten_builtin_memalign"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _ntohs = Module["_ntohs"] = function() {
-  return (_ntohs = Module["_ntohs"] = Module["asm"]["ntohs"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
@@ -9006,6 +9029,11 @@ var dynCall_vij = Module["dynCall_vij"] = function() {
 /** @type {function(...*):?} */
 var dynCall_jiiiii = Module["dynCall_jiiiii"] = function() {
   return (dynCall_jiiiii = Module["dynCall_jiiiii"] = Module["asm"]["dynCall_jiiiii"]).apply(null, arguments);
+};
+
+/** @type {function(...*):?} */
+var dynCall_viiiij = Module["dynCall_viiiij"] = function() {
+  return (dynCall_viiiij = Module["dynCall_viiiij"] = Module["asm"]["dynCall_viiiij"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
@@ -9129,13 +9157,13 @@ var dynCall_iiij = Module["dynCall_iiij"] = function() {
 };
 
 /** @type {function(...*):?} */
-var dynCall_iijiiij = Module["dynCall_iijiiij"] = function() {
-  return (dynCall_iijiiij = Module["dynCall_iijiiij"] = Module["asm"]["dynCall_iijiiij"]).apply(null, arguments);
+var dynCall_iijji = Module["dynCall_iijji"] = function() {
+  return (dynCall_iijji = Module["dynCall_iijji"] = Module["asm"]["dynCall_iijji"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
-var dynCall_iijji = Module["dynCall_iijji"] = function() {
-  return (dynCall_iijji = Module["dynCall_iijji"] = Module["asm"]["dynCall_iijji"]).apply(null, arguments);
+var dynCall_iijiiij = Module["dynCall_iijiiij"] = function() {
+  return (dynCall_iijiiij = Module["dynCall_iijiiij"] = Module["asm"]["dynCall_iijiiij"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
