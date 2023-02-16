@@ -3,7 +3,6 @@
     <TargetFramework>net7.0</TargetFramework>
     <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
     <WasmMainJSPath>AppBundle\main.js</WasmMainJSPath>
-    <PublishTrimmed>false</PublishTrimmed>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
