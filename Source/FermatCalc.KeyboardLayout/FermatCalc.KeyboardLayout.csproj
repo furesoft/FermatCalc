@@ -6,8 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="Portable.Xaml" Version="0.26.0" />
-    <PackageReference Include="ReactiveUI" Version="18.3.1" />
-	<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="ReactiveUI" Version="19.5.72" />
+	<PackageReference Include="Avalonia" Version="11.0.10" />
   </ItemGroup>
 
 </Project>

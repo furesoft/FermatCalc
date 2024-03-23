@@ -5,6 +5,7 @@ using ReactiveUI;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Avalonia.Markup.Xaml.Styling;
 
 namespace FermatCalc.ViewModels.Pages;
 
@@ -48,10 +49,12 @@ public class CalculatorPageViewModel : ViewModelBase
 
         foreach (var action in ActionRepository.Actions)
         {
-            var btn = new LayoutButton();
-            btn.Display = action.Value.Display;
-            btn.ActionID = action.Key;
-            btn.Hint = action.Value.Hint;
+            var btn = new LayoutButton
+            {
+                Display = action.Value.Display,
+                ActionID = action.Key,
+                Hint = action.Value.Hint
+            };
 
             btn.PropertyChanged += (s, e) =>
             {

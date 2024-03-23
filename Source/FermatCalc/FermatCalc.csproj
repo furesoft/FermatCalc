@@ -14,18 +14,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AuroraModularis" Version="1.0.19" />
-    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia" Version="11.0.10" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.10" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Material.Avalonia" Version="3.0.0-avalonia11-preview2.137-nightly" />
-    <PackageReference Include="Material.Icons.Avalonia" Version="1.2.0" />
-    <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10" />
+    <PackageReference Include="DryIoc" Version="5.4.3" />
+    <PackageReference Include="Material.Avalonia" Version="3.4.2" />
+    <PackageReference Include="Material.Icons.Avalonia" Version="2.1.0" />
+    <PackageReference Include="NiL.JS" Version="2.5.1677" />
+    <PackageReference Include="CSharpMath.SkiaSharp" Version="0.5.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FermatCalc.Controls\FermatCalc.Controls.csproj" />
     <ProjectReference Include="..\FermatCalc.KeyboardLayout\FermatCalc.KeyboardLayout.csproj" />
   </ItemGroup>
 
@@ -33,5 +33,9 @@
     <AvaloniaResource Update="Assets\Icons.axaml">
       <SubType>Designer</SubType>
     </AvaloniaResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Controls\Theme\NavigationButtonGroup.axaml" />
   </ItemGroup>
 </Project>

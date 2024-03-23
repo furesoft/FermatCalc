@@ -1,5 +1,4 @@
-﻿using AuroraModularis.Core;
-using FermatCalc.Controls;
+﻿using FermatCalc.Controls;
 
 namespace FermatCalc.ActionItems;
 
@@ -13,7 +12,6 @@ public class ClearActionItem : DefaultActionItem
     public override void Invoke()
     {
         CalculationEngine.ClearBuffer();
-        Container.Current.Resolve<Display>().Result = "";
-        
+        IOC.Resolve<Display>().Result = "";
     }
 }

@@ -2,6 +2,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
 			 xmlns:local="using:FermatCalc"
+			 xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
 			 x:Class="FermatCalc.App">
 	<Application.DataTemplates>
 		<local:ViewLocator />
@@ -9,8 +10,8 @@
 
 	<Application.Styles>
 		<themes:MaterialTheme BaseTheme="Light" PrimaryColor="Purple" SecondaryColor="Lime" />
-		<StyleInclude Source="avares://Material.Icons.Avalonia/App.xaml" />
-		<StyleInclude Source="avares://FermatCalc.Controls/Generic.axaml" />
+		<avalonia:MaterialIconStyles />
+		<StyleInclude Source="avares://FermatCalc/Controls/Generic.axaml" />
 	</Application.Styles>
 
 	<Application.Resources>
