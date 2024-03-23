@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FermatCalc.Controls\FermatCalc.Controls.csproj" />
-    <ProjectReference Include="..\FermatCalc.JS\FermatCalc.JS.csproj" />
     <ProjectReference Include="..\FermatCalc.KeyboardLayout\FermatCalc.KeyboardLayout.csproj" />
   </ItemGroup>
 
